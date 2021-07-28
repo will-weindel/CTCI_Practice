@@ -9,8 +9,16 @@
 //A/P - for loop / loop through string, create new string
 //T - N/A
 
-const URLify = (str) => {
-  //You write code here
+var URLify = (str) => {
+  let modifiedURL = '';
+  for (var letter of str) {
+    if (letter !== ' ') {
+      modifiedURL += letter;
+    } else {
+      modifiedURL += '%20';
+    }
+  }
+  return modifiedURL;
 };
 
 module.exports = URLify;
