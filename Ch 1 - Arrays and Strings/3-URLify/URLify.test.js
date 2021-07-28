@@ -11,5 +11,5 @@ test('URLifies strings', () => {
 });
 
 test('Test URLify String', () => {
-  expect(URLify('Hello All').toBe(URLifySol('Hello All')));
-})
+  expect(URLify('Hello All')).toBe(URLifySol('Hello All'));
+});
