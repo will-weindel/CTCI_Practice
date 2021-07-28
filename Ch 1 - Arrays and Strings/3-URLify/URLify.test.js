@@ -9,3 +9,7 @@ test('URLifies strings', () => {
     URLifySol('What  about  this  edgecase?')
   );
 });
+
+test('Test URLify String', () => {
+  expect(URLify('Hello All').toBe(URLifySol('Hello All')));
+})
