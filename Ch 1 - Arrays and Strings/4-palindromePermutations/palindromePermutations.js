@@ -10,7 +10,19 @@
 //T - sort str?
 
 function palindromePermutations(str) {
-  //Coding here is optional, but recommended.
+  const sortedStr = str.toLowerCase().split('').sort().join('').trim();
+  let oddCount = 0;
+
+  for (var i = 0; i < sortedStr.length; i++) {
+    if (sortedStr[i] === sortedStr[i + 1]) {
+      i++;
+    } else {
+      if (sortedStr.length % 2 === 0) return false;
+      oddCount++;
+      if (oddCount > 1) return false;
+    }
+  }
+  return true;
 }
 
 module.exports = palindromePermutations;
