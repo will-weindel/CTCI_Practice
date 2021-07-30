@@ -18,3 +18,7 @@ test('Correctly identifies strings that are NOT permutations of palindromes', ()
     palindromePermutationsSol('boopty scoopty woop')
   );
 });
+
+test('Correctly idents perms', () => {
+  expect(palindromePermutations('abcdefgfedcba')).tobe(palindromePermutationsSol('abcdefgfedcba'));
+})
