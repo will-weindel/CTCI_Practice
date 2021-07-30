@@ -9,6 +9,25 @@
 //A - loop through string?
 //T - sort str?
 
+// function palindromePermutations(str) {
+//   const sortedStr = str.toLowerCase().split('').sort().join('').trim();
+//   let oddCount = 0;
+
+//   for (var i = 0; i < sortedStr.length; i++) {
+//     if (sortedStr[i] === sortedStr[i + 1]) {
+//       i++;
+//     } else {
+//       oddCount++;
+//       if (sortedStr.length % 2 === 0) {
+//         return false;
+//       } else if (oddCount > 1) {
+//         return false;
+//       }
+//     }
+//   }
+//   return true;
+// }
+
 function palindromePermutations(str) {
   const letterStorage = {};
   let letterCount = 0;
