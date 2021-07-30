@@ -17,9 +17,12 @@ function palindromePermutations(str) {
     if (sortedStr[i] === sortedStr[i + 1]) {
       i++;
     } else {
-      if (sortedStr.length % 2 === 0) return false;
       oddCount++;
-      if (oddCount > 1) return false;
+      if (sortedStr.length % 2 === 0) {
+        return false;
+      } else if (oddCount > 1) {
+        return false;
+      }
     }
   }
   return true;
