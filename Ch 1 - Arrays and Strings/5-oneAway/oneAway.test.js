@@ -20,3 +20,7 @@ test('Identifies strings that are NOT one change away', () => {
   expect(oneAway('whoa', 'wow')).toBe(oneAwaySol('whoa', 'wow'));
   expect(oneAway('Dozens', 'donuts')).toBe(oneAwaySol('Dozens', 'donuts'));
 });
+
+test('Idents false solutions', () => {
+  expect(oneAway('abcdefg', 'abcdefghi')).toBe(oneAwaySol('abcdefg', 'abcdefghi'));
+})
