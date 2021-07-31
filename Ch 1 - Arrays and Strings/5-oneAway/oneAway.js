@@ -30,9 +30,6 @@ function modifyString(str1, str2, letter, i) {
   //insert
   modifiedString = str2.substring(0, i) + letter + str2.substring(i, str2.length);
   if(checkRemainingString(str1, modifiedString, i)) return true;
-  //remove
-  modifiedString = str2.substring(0, i) + str2.substring(i, str2.length);
-  if(checkRemainingString(str1, modifiedString, i)) return true;
   //change
   modifiedString = str2.substring(0, i) + letter + str2.substring(i + 1, str2.length);
   if(checkRemainingString(str1, modifiedString, i)) return true;
