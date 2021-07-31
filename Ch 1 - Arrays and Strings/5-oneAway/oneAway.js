@@ -22,9 +22,9 @@ function oneAway(str1, str2) {
       if (addLetter(longestString, shortestString, longestString[i], i)) return true;
       if (removeLetter(longestString, shortestString, i)) return true;
       if (changeLetter(longestString, shortestString, longestString[i], i)) return true;
+      return false;
     }
   }
-  return false;
 }
 
 function addLetter(str1, str2, letter, i) {
