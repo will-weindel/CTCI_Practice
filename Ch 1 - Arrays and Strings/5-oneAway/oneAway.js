@@ -19,32 +19,27 @@ function oneAway(str1, str2) {
 
   for (var i = 0; i < longestString.length; i++) {
     if (longestString[i] !== shortestString[i]) {
-      if (addLetter(longestString, shortestString, longestString[i], i)) return true;
-      if (removeLetter(longestString, shortestString, i)) return true;
-      if (changeLetter(longestString, shortestString, longestString[i], i)) return true;
+      if (modifyString(longestString, shortestString, longestString[i], i)) return true;
       return false;
     }
   }
 }
 
-function addLetter(str1, str2, letter, i) {
-  str2 = str2.substring(0, i) + letter + str2.substring(i, str2.length);
-  for (var j = i; j < str1.length; j++) {
-    if (str1[j] !== str2[j]) return false;
-  }
-  return true;
+function modifyString(str1, str2, letter, i) {
+  let modifiedString;
+  //insert
+  modifiedString = str2.substring(0, i) + letter + str2.substring(i, str2.length);
+  if(checkRemainingString(str1, modifiedString, i)) return true;
+  //remove
+  modifiedString = str2.substring(0, i) + str2.substring(i, str2.length);
+  if(checkRemainingString(str1, modifiedString, i)) return true;
+  //change
+  modifiedString = str2.substring(0, i) + letter + str2.substring(i + 1, str2.length);
+  if(checkRemainingString(str1, modifiedString, i)) return true;
+  return false;
 }
 
-function removeLetter(str1, str2, i) {
-  str2 = str2.substring(0, i) + str2.substring(i, str2.length);
-  for (var j = i; j < str1.length; j++) {
-    if (str1[j] !== str2[j]) return false;
-  }
-  return true;
-}
-
-function changeLetter(str1, str2, letter, i) {
-  str2 = str2.substring(0, i) + letter + str2.substring(i + 1, str2.length);
+function checkRemainingString(str1, str2, i) {
   for (var j = i; j < str1.length; j++) {
     if (str1[j] !== str2[j]) return false;
   }
