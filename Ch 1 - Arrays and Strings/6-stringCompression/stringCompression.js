@@ -6,19 +6,21 @@
 //E - empty
 
 //D - no letters, one letter
-//D - n/a
+//D - use Array for 'StringBuilder'
 //A - for loop
 //T - n/a
 
 //loop through string, keep track of 'current' letter
   //if new letter is same as current, add one to counts
-  //if new letter is not same, add count to string and reset to 0
+  //if new letter is not same, add letter/count to array and reset to 0
 //check length of compressed string, return shorter string
 
 function stringCompression(str) {
   let currentLetter = '';
-  let compressedString = '';
+  let compressedString = [];
   let letterCount = 1;
+
+  if (str.length === 0 || str.length === 1) return str;
 
   for (var letter of str) {
     if (!currentLetter) {
@@ -28,13 +30,13 @@ function stringCompression(str) {
     if (letter === currentLetter) {
       letterCount++;
     } else {
-      compressedString = compressedString + currentLetter + String(letterCount);
+      compressedString.push(currentLetter, String(letterCount));
       currentLetter = letter;
       letterCount = 1;
     }
   }
-  compressedString = compressedString + currentLetter + String(letterCount);
-  return compressedString.length < str.length ? compressedString : str;
+  compressedString.push(currentLetter, String(letterCount));
+  return compressedString.join('').length < str.length ? compressedString.join('') : str;
 }
 
 module.exports = stringCompression;
