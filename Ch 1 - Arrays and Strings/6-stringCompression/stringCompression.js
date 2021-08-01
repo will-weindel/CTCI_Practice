@@ -10,8 +10,31 @@
 //A - for loop
 //T - n/a
 
+//loop through string, keep track of 'current' letter
+  //if new letter is same as current, add one to counts
+  //if new letter is not same, add count to string and reset to 0
+//check length of compressed string, return shorter string
+
 function stringCompression(str) {
-  //I'd put the code here
+  let currentLetter = '';
+  let compressedString = '';
+  let letterCount = 1;
+
+  for (var letter of str) {
+    if (!currentLetter) {
+      currentLetter = letter;
+      continue;
+    }
+    if (letter === currentLetter) {
+      letterCount++;
+    } else {
+      compressedString = compressedString + currentLetter + String(letterCount);
+      currentLetter = letter;
+      letterCount = 1;
+    }
+  }
+  compressedString = compressedString + currentLetter + String(letterCount);
+  return compressedString.length < str.length ? compressedString : str;
 }
 
 module.exports = stringCompression;
