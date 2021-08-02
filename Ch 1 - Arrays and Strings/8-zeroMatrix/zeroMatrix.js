@@ -10,6 +10,11 @@
 //AP's - for-loop w/ helper function
 //TR's - n/a
 
+//Keep track of 0-out rows?
+
+//loop through each element in array
+  //if 0, helper function will 0-out col and row
+
 function zeroMatrix(matrix) {
   //The void goes here
 }
