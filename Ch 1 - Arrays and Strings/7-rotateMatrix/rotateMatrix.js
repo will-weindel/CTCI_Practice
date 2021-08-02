@@ -11,7 +11,16 @@
 //T - n/a
 
 function rotateMatrix(matrix) {
-  //EVERYTHING MUST ROTATE!
+  let rotatedMatrix = [];
+
+  for (var i = 0; i < matrix.length; i++) {
+    let matrixRow = [];
+    for (var j = matrix.length - 1; j >= 0; j--) {
+      matrixRow.push(matrix[j][i]);
+    }
+    rotatedMatrix.push(matrixRow);
+  }
+  return rotatedMatrix;
 }
 
 module.exports = rotateMatrix;
