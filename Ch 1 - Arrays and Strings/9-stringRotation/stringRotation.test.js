@@ -18,3 +18,7 @@ test('succesfully finds non-rotated strings', () => {
     stringRotationSol('bananas are yummy', 'I hope you agree')
   );
 });
+
+test('Checks correct implementation', () => {
+  expect(stringRotation('abcdefghi', 'bcdefghia')).toBe(stringRotationSol('abcdefghi', 'bcdefghia'));
+})
