@@ -15,7 +15,8 @@
 //add str2 to str2, then check isSubstring
 
 function stringRotation(str1, str2) {
-  //code
+  let doubleString = str2 + str2;
+  return doubleString.includes(str1);
 }
 
 module.exports = stringRotation;
