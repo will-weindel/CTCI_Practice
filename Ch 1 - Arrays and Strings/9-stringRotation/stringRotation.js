@@ -2,6 +2,16 @@
 
 //you can use .includes to simulate the call of isSubstring
 
+//I - two strings
+//O - bool
+//C - all strings?
+//E - nothing?
+
+//D - differnet lengths,
+//D -
+//AP - for-loop
+//T - transform str1 to match str 2 or vice-a-versa
+
 function stringRotation(str1, str2) {
   //code
 }
