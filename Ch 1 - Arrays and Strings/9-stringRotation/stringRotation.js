@@ -12,6 +12,8 @@
 //AP - for-loop
 //T - transform str1 to match str 2 or vice-a-versa
 
+//add str2 to str2, then check isSubstring
+
 function stringRotation(str1, str2) {
   //code
 }
