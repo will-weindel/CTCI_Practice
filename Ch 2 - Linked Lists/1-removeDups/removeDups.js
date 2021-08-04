@@ -38,7 +38,27 @@ function removeDups(head) {
     }
     currentNode = currentNode.next;
   }
-  return head;
 }
+
+// function removeDups(head) {
+//   let staticNode = head;
+//   let previousNode = staticNode;
+//   let currentNode = staticNode.next;
+
+//   while (staticNode && currentNode) {
+//     if (staticNode.val === currentNode.val) {
+//       previousNode.next = currentNode.next;
+//     } else {
+//       previousNode = currentNode;
+//     }
+//     currentNode = currentNode.next;
+//     if (!currentNode) {
+//       staticNode = staticNode.next;
+//       previousNode = staticNode;
+//       currentNode = staticNode ? staticNode.next : null;
+//     }
+//   }
+//   return head;
+// }
 
 module.exports = removeDups;
