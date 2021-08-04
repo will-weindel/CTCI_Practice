@@ -20,6 +20,10 @@ function Node(val) {
 //AP - while loop
 //TR - sort LL?
 
+//loop through each node, saving value to cache
+//if subsequent node values exists in cache, delete them and update LL next vals.
+//keep track of both previous and current nodes (two pointers)
+
 function removeDups(head) {
   // solution
 }
