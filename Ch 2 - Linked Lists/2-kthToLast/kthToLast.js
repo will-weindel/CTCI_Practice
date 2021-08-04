@@ -15,9 +15,44 @@ function Node(val) {
 }
 */
 
+//I - LL
+//O - kth to last node (what to return, pointer to k node, or array of vals?) node
+//C - n/a (always an end, no cycle)
+//E - k is greater than length, k is 0 or less
+
+//DQ - n/a
+//DS - array of nodes? not it this case (just returning a node)
+//AP - while loop
+//TR - n/a
+
 
 const kthToLast = (head, k) => {
-  //Please code here
+  //handle edge cases
+  if (k <= 0) return null;
+  if (head === null) return null;
+
+  let currentNode = head;
+  let listSize = 0;
+  let count = 0;
+
+  //get size of LL
+  while (currentNode) {
+    listSize++;
+    currentNode = currentNode.next;
+  }
+
+  if (k > listSize) return null;
+  currentNode = head;
+
+  //return size minus kth node
+  while (currentNode) {
+    if (count === listSize - k) {
+      return currentNode;
+    }
+    count++;
+    currentNode = currentNode.next;
+  }
+  return null;
 };
 
 module.exports = kthToLast;
