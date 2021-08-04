@@ -10,6 +10,16 @@ function Node(val) {
 }
 */
 
+//I - linkedList Head Node
+//O - linkedList head Node
+//C - ?
+//E - n/a
+
+//DQ - n/a
+//DS - cache
+//AP - while loop
+//TR - sort LL?
+
 function removeDups(head) {
   // solution
 }
