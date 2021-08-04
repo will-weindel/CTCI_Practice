@@ -44,6 +44,7 @@ const kthToLast = (head, k) => {
   }
 
   if (k > listSize) return null;
+  currentNode = head;
 
   //return size minus kth node
   while (currentNode) {
