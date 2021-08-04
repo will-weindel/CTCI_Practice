@@ -25,6 +25,9 @@ function Node(val) {
 //AP - n/a
 //TR - n/a
 
+//1. copy data from next node (node.next.data) to current node (node.data)
+//2. point current node next prop (node.next) to next node's next prop (node.next.next);
+
 const deleteMiddle = (node) => {
   node.val = node.next.val;
   node.next = node.next.next;
