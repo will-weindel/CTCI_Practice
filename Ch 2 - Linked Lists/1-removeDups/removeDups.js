@@ -38,6 +38,7 @@ function removeDups(head) {
     }
     currentNode = currentNode.next;
   }
+  return head;
 }
 
 module.exports = removeDups;
