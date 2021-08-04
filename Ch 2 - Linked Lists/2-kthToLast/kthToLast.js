@@ -25,6 +25,8 @@ function Node(val) {
 //AP - while loop
 //TR - n/a
 
+//1. get size of LL
+//2. return size minus kth node
 
 const kthToLast = (head, k) => {
   //handle edge cases
