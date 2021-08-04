@@ -25,7 +25,19 @@ function Node(val) {
 //keep track of both previous and current nodes (two pointers)
 
 function removeDups(head) {
-  // solution
+  let currentNode = head;
+  let previousNode;
+  let valStorage = {};
+
+  while (currentNode) {
+    if (valStorage[currentNode.val]) {
+      previousNode.next = currentNode.next;
+    } else {
+      valStorage[currentNode.val] = true;
+      previousNode = currentNode;
+    }
+    currentNode = currentNode.next;
+  }
 }
 
 module.exports = removeDups;
