@@ -15,13 +15,14 @@ function Node(val) {
   this.next = null;
 }
 */
-function Node(val) {
-  this.val = val;
-  this.next = null;
-}
 
-const partition = (head, x) => {
-  //Please code here
-};
+// I - linked list head, and partition number
+// O - return pointer to head
+// C - constraints (negative numbers, all numbers)
+// E/DQs - all nodes outside of partition, single ll, no ll, cycle?
+
+// DS - array (used to add pointers)
+// AP - (1) while loop to sort, (1) for loop to connect nodes
+// TR - n/a
 
 module.exports = partition;
