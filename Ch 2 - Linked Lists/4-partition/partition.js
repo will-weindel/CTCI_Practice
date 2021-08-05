@@ -32,4 +32,30 @@ function Node(val) {
 // C 5. loop through each element in new LL, updating the 'next' props to neighbor
 // C 6. return new head
 
+const partition = (head, x) => {
+  //edge cases
+  if (head === null) return null;
+  if (head.next === null) return head;
+  if (typeof x !== 'number') return 'Partition value must be a number.';
+
+  let sortedNodes = [];
+  let currentNode = head;
+
+  while (currentNode) {
+    if (currentNode.val >= x) {
+      sortedNodes.push(currentNode);
+    } else {
+      sortedNodes.unshift(currentNode);
+    }
+  }
+
+  for (var i = 0; i < sortedNodes.length - 1; i++) {
+    sortedNodes[i].next = sortedNodes[i + 1];
+  }
+
+  sortedNodes[sortedNodes.length - 1].next = null;
+
+  return sortedNodes[0];
+};
+
 module.exports = partition;
