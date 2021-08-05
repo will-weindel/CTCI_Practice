@@ -25,4 +25,11 @@ function Node(val) {
 // AP - (1) while loop to sort, (1) for loop to connect nodes
 // TR - n/a
 
+// C 1. create a new 'LL' (can be an array of pointers)
+// C 2. loop through each element of input LL
+  // C 3. if element val is greater than partition, add to end of new LL
+  // C 4. if element val is less than partition, add to beginning of new LL
+// C 5. loop through each element in new LL, updating the 'next' props to neighbor
+// C 6. return new head
+
 module.exports = partition;
