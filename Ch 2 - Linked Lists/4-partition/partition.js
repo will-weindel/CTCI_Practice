@@ -47,6 +47,7 @@ const partition = (head, x) => {
     } else {
       sortedNodes.unshift(currentNode);
     }
+    currentNode = currentNode.next;
   }
 
   for (var i = 0; i < sortedNodes.length - 1; i++) {
