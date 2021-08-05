@@ -28,7 +28,10 @@ function Node(val) {
 //1. copy data from next node (node.next.data) to current node (node.data)
 //2. point current node next prop (node.next) to next node's next prop (node.next.next);
 
+//How to handle last node? Dummy node with null/null?
+
 const deleteMiddle = (node) => {
+  if (!node.next) return 'Not possible';
   node.val = node.next.val;
   node.next = node.next.next;
 };
