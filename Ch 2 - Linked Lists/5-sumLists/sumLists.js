@@ -23,6 +23,13 @@ function Node(val) {
   this.next = null;
 }
 */
+
+// I - two LLs
+// O - new LL which 'sums' in the inputs
+// C - all numbers
+// E/DQs - null vals, only one LL passed, non-numerics, non LL
+
+
 function Node(val) {
   this.val = val;
   this.next = null;
