@@ -50,7 +50,33 @@ function Node(val) {
 }
 
 const sumLists = (list1, list2) => {
-  //Please code here
+  let currentNodeL1 = list1;
+  let currentNodeL2 = list2;
+  let sum = 0;
+  let factor = 1;
+
+  while (currentNodeL1 || currentNodeL2) {
+    if (currentNodeL1) {
+      sum += currentNodeL1.val * factor;
+      currentNodeL1 = currentNodeL1.next;
+    }
+    if (currentNodeL2) {
+      sum += currentNodeL2.val * factor;
+      currentNodeL2 = currentNodeL2.next;
+    }
+    factor *= 10;
+  }
+
+  let sumArray = String(sum).split('').reverse();
+  let newHead = new Node(Number(sumArray[0]));
+  let previousNode = newHead;
+
+  for (var i = 1; i < sumArray.length; i++) {
+    previousNode.next = new Node(Number(sumArray[i]));
+    previousNode = previousNode.next;
+  }
+
+  return newHead;
 };
 
 // Follow up
