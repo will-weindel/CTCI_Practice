@@ -29,6 +29,20 @@ function Node(val) {
 // C - all numbers
 // E/DQs - null vals, only one LL passed, non-numerics, non LL
 
+// (c) Create (2) pointers, 1 -> LL1 head, 2 -> LL2 head
+// (c) Create Sum var, factor var
+// (c) Loop through lists consecutively, adding values
+  // update sum
+  // update pointers
+  // update factor
+// (c) stringify sum, split, and reverse
+// loop through sum array, create node for each element
+// return new array
+
+// DS - creation of new LL
+// AP - while loop, for loop
+// TR - reverse an array
+
 
 function Node(val) {
   this.val = val;
