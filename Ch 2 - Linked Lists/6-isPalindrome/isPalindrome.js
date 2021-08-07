@@ -33,20 +33,27 @@ function Node(val) {
 }
 
 const isPalindrome = (head) => {
-  let headPointer = head;
-  let tailPointer = head;
-  let listValStorage = [];
+  let fastRunner = head;
+  let slowRunner = head;
+  let nodeValues = [slowRunner.val];
 
-  while (tailPointer) {
-    listValStorage.push(tailPointer.val);
-    tailPointer = tailPointer.next;
+  while (true) {
+    slowRunner = slowRunner.next;
+    nodeValues.push(slowRunner.val);
+    fastRunner = fastRunner.next.next;
+
+    if (!fastRunner.next) {
+      break;
+    }
+    if (!fastRunner.next.next) {
+      slowRunner = slowRunner.next;
+      break;
+    }
   }
 
-  for (let i = listValStorage.length - 1; i >= 0; i--) {
-    if (listValStorage[i] !== headPointer.val) {
-      return false;
-    }
-    headPointer = headPointer.next;
+  for (let i = nodeValues.length - 1; i >= 0; i--) {
+    if (slowRunner.val !== nodeValues[i]) return false;
+    slowRunner = slowRunner.next;
   }
   return true;
 };
