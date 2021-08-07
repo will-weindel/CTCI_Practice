@@ -20,10 +20,14 @@ function Node(val) {
 
 // I - Two pointers to LL heads
 // O - If true, same node | else false
-// C - Time O(n) | Space O(n) | Only nodes?
-// E - null heads,
+// C - Time O(n) | Space O(n) | min/max size of LL
+// E/DQ's - null heads, only one head
 
+// DS - Map() (to store node refs)
+// AP - two while loops
+// TR - n/a
 
+// DS
 function Node(val) {
   this.val = val;
   this.next = null;
