@@ -13,13 +13,34 @@ function Node(val) {
   this.next = null;
 }
 */
+
+// I - head of a LL
+// O - bool
+// C - only LL's, any type conversion, only numbers?
+// E/DQs - head = null, only one node, cycle detection
+
 function Node(val) {
   this.val = val;
   this.next = null;
 }
 
 const isPalindrome = (head) => {
-  //Please code here
+  let headPointer = head;
+  let tailPointer = head;
+  let listValStorage = [];
+
+  while (tailPointer) {
+    listValStorage.push(tailPointer.val);
+    tailPointer = tailPointer.next;
+  }
+
+  for (let i = listValStorage.length - 1; i >= 0; i--) {
+    if (listValStorage[i] !== headPointer.val) {
+      return false;
+    }
+    headPointer = headPointer.next;
+  }
+  return true;
 };
 
 
