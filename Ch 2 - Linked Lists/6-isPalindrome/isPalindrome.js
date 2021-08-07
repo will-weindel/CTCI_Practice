@@ -19,6 +19,10 @@ function Node(val) {
 // C - only LL's, any type conversion, only numbers?
 // E/DQs - head = null, only one node, cycle detection
 
+// DS - two pointers
+// AP - while loop
+// TR - n/a
+
 function Node(val) {
   this.val = val;
   this.next = null;
