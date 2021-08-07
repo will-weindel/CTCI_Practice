@@ -35,6 +35,7 @@ function Node(val) {
 const isPalindrome = (head) => {
   let headPointer = head;
   let tailPointer = head;
+  let listValStorage = [];
 
   while (tailPointer) {
     listValStorage.push(tailPointer.val);
