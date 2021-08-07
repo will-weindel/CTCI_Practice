@@ -52,6 +52,7 @@ const intersection = (head1, head2) => {
     }
     currentNodeListTwo = currentNodeListTwo.next;
   }
+
   return false;
 };
 
