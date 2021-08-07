@@ -23,6 +23,10 @@ function Node(val) {
 // AP - while loop
 // TR - n/a
 
+// create two pointers, one size variable
+// iterate one pointer through LL to the end (keep track of size)
+// iterate both pointers towards center (n/2 times), checking if vals are the same
+
 function Node(val) {
   this.val = val;
   this.next = null;
