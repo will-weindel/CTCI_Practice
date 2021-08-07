@@ -27,7 +27,10 @@ function Node(val) {
 // AP - two while loops
 // TR - n/a
 
-// DS
+// 1. loop through each node of LL1, adding node refs to Map()
+// 2. loop through each node of LL2, checking if Map() contains node
+    // if yes, return node | else return false
+
 function Node(val) {
   this.val = val;
   this.next = null;
