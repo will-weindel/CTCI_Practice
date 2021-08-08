@@ -37,22 +37,36 @@ function Node(val) {
 }
 
 const intersection = (head1, head2) => {
-  let currentNodeListOne = head1;
-  let currentNodeListTwo = head2;
-  let listOneNodeMap = new Map();
+  let currentListOneHead = head1;
+  let currentListTwoHead = head2;
+  let listOneSize = 0;
+  let listTwoSize = 0;
 
-  while (currentNodeListOne) {
-    listOneNodeMap.set(currentNodeListOne, true);
-    currentNodeListOne = currentNodeListOne.next;
-  }
-
-  while (currentNodeListTwo) {
-    if (listOneNodeMap.has(currentNodeListTwo)) {
-      return currentNodeListTwo;
+  while (currentListOneHead || currentListTwoHead) {
+    if (currentListOneHead) {
+      listOneSize++;
+      currentListOneHead = currentListOneHead.next;
     }
-    currentNodeListTwo = currentNodeListTwo.next;
+    if (currentListTwoHead) {
+      listTwoSize++;
+      currentListTwoHead = currentListTwoHead.next;
+    }
   }
 
+  let longerListNode = listOneSize >= listTwoSize ? head1 : head2;
+  let shorterListNode = longerListNode === head1 ? head2 : head1;
+
+  for (var i = 1; i <= Math.abs(listOneSize - listTwoSize); i++) {
+    longerListNode = longerListNode.next;
+  }
+
+  while (longerListNode) {
+    if (longerListNode === shorterListNode) {
+      return longerListNode;
+    }
+    longerListNode = longerListNode.next;
+    shorterListNode = shorterListNode.next;
+  }
   return false;
 };
 
