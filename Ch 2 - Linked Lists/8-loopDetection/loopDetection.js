@@ -20,6 +20,9 @@ function Node(val) {
 // C - Time O(N) | Space O(1) | upper limit | lower limit
 // E/DQ's - null head, only one node, can node link to itself?
 
+// DS - n/a (although you could use a map to ref nodes)
+// AP - two while loops (first checks loop, second checks node)
+// TR - n/a
 
 function Node(val) {
   this.val = val;
