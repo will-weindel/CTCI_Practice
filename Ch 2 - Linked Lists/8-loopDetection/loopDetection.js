@@ -24,6 +24,14 @@ function Node(val) {
 // AP - two while loops (first checks loop, second checks node)
 // TR - n/a
 
+// 1. Create two runners (fast and slow)
+// 2. Loop through nodes (slow +1 node, fast +2 nodes)
+  // if pointers intersect, there is a loop, proceed
+  // else return false
+// 3. move slow runner to head (leave fast alone)
+// 4. loop through LL again (both slow and fast +1 node)
+// 5. return where they meet
+
 function Node(val) {
   this.val = val;
   this.next = null;
