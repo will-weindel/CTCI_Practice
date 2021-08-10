@@ -1,5 +1,10 @@
 //Describe (write) how you could use a single array to implement three stacks.
 
+// I - multi inputs, inputs will be values added to stack 1 2 or 3,
+// O - depends on method call, but we are looking for standard stack calls
+// C - Time and Space will depend on each method, min and max values for input, data types etc.
+// E - given none numeric vals
+
 var ThreeInOne = function () {
   this.container = [];
   //finish this
