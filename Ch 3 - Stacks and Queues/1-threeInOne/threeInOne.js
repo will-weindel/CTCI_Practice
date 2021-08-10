@@ -9,6 +9,9 @@
 // AP - many loops to iterate through stack
 // TR - may need to transform input into string (so we can use charAt)
 
+// the general idea is to prepend any value with a flag, then loop through the stack
+// looking for the identifier to return a value specific to the method.
+
 var ThreeInOne = function () {
   this.container = [];
   //finish this
