@@ -32,7 +32,7 @@ ThreeInOne.prototype.push3 = function (value) {
 ThreeInOne.prototype.pop1 = function () {
   for (var i = this.container.length - 1; i >= 0; i--) {
     if (this.container[i].charAt(0) === '1' && this.container[i].charAt(1) === '#') {
-      let stackVal = Number(this.container[i].substring(2));
+      let stackVal = this.container[i].substring(2);
       this.container.splice(i, 1);
       return stackVal;
     }
@@ -42,7 +42,7 @@ ThreeInOne.prototype.pop1 = function () {
 ThreeInOne.prototype.pop2 = function () {
   for (var i = this.container.length - 1; i >= 0; i--) {
     if (this.container[i].charAt(0) === '2' && this.container[i].charAt(1) === '#') {
-      let stackVal = Number(this.container[i].substring(2));
+      let stackVal = this.container[i].substring(2);
       this.container.splice(i, 1);
       return stackVal;
     }
@@ -52,7 +52,7 @@ ThreeInOne.prototype.pop2 = function () {
 ThreeInOne.prototype.pop3 = function () {
   for (var i = this.container.length - 1; i >= 0; i--) {
     if (this.container[i].charAt(0) === '3' && this.container[i].charAt(1) === '#') {
-      let stackVal = Number(this.container[i].substring(2));
+      let stackVal = this.container[i].substring(2);
       this.container.splice(i, 1);
       return stackVal;
     }
@@ -62,7 +62,7 @@ ThreeInOne.prototype.pop3 = function () {
 ThreeInOne.prototype.peek1 = function () {
   for (var i = this.container.length - 1; i >= 0; i--) {
     if (this.container[i].charAt(0) === '1' && this.container[i].charAt(1) === '#') {
-      let stackVal = Number(this.container[i].substring(2));
+      let stackVal = this.container[i].substring(2);
       return stackVal;
     }
   }
@@ -71,7 +71,7 @@ ThreeInOne.prototype.peek1 = function () {
 ThreeInOne.prototype.peek2 = function () {
   for (var i = this.container.length - 1; i >= 0; i--) {
     if (this.container[i].charAt(0) === '2' && this.container[i].charAt(1) === '#') {
-      let stackVal = Number(this.container[i].substring(2));
+      let stackVal = this.container[i].substring(2);
       return stackVal;
     }
   }
@@ -80,7 +80,7 @@ ThreeInOne.prototype.peek2 = function () {
 ThreeInOne.prototype.peek3 = function () {
   for (var i = this.container.length - 1; i >= 0; i--) {
     if (this.container[i].charAt(0) === '3' && this.container[i].charAt(1) === '#') {
-      let stackVal = Number(this.container[i].substring(2));
+      let stackVal = this.container[i].substring(2);
       return stackVal;
     }
   }
