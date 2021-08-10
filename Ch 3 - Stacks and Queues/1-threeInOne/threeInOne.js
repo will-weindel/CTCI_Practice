@@ -3,7 +3,11 @@
 // I - multi inputs, inputs will be values added to stack 1 2 or 3,
 // O - depends on method call, but we are looking for standard stack calls
 // C - Time and Space will depend on each method, min and max values for input, data types etc.
-// E - given none numeric vals
+// E/DQ - given none numeric vals
+
+// DS - single array for stack, no additional structures
+// AP - many loops to iterate through stack
+// TR - may need to transform input into string (so we can use charAt)
 
 var ThreeInOne = function () {
   this.container = [];
