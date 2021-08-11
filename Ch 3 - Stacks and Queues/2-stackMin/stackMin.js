@@ -20,19 +20,32 @@ var Stack = require('./../util/Stack');
 class StackMin extends Stack {
   constructor() {
     super();
-    // finish this
+    this.storage = [];
+    this.minimum = [];
+    this.sLength = 0;
+    this.mLength = 0;
   }
 
   push(value) {
-    //
+    this.storage.push(value);
+    this.sLength++;
+    if (this.mLength === 0 || value <= this.minimum[this.mLength - 1]) {
+      this.minimum.push(value);
+      this.mLength++;
+    }
   }
 
   pop() {
-    //
+    if (this.storage[this.sLength - 1] === this.minimum[this.mLength - 1]) {
+      this.minimum.pop();
+      this.mLength--;
+    }
+    this.sLength--;
+    return this.storage.pop();
   }
 
   min() {
-    //
+    return this.minimum[this.mLength - 1];
   }
 }
 
