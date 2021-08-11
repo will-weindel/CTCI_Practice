@@ -9,6 +9,12 @@
 //AP - for loop
 //TR - n/a
 
+//1. push() will add value to storage, and check last value of min stack.
+  // if input is smaller than last min stack val, add to min stack
+//2. pop() will remove and return last value from storage.
+  // if pop value is equal to last min stack val, remove from min stack
+//3. min() will return the last value of min stack
+
 var Stack = require('./../util/Stack');
 
 class StackMin extends Stack {
