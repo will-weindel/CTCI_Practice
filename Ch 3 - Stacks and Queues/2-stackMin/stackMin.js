@@ -5,6 +5,10 @@
 // C - Time O(1) for all methods | Space O(n) | min and max value
 // E/DQs - non numeric
 
+//DS - an additional stack to track the minimum
+//AP - for loop
+//TR - n/a
+
 var Stack = require('./../util/Stack');
 
 class StackMin extends Stack {
