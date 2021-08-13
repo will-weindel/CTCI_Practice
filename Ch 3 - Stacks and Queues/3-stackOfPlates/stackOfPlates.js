@@ -11,6 +11,9 @@
 //AP -
 //TR - n/a
 
+// Work through each method, the stack will need reference to the full stackSet,
+// each individual stack, and the ability to change the current active set.
+
 var Stack = require('./../util/Stack');
 
 class StackOfPlates {
