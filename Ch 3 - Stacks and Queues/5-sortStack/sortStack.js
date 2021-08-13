@@ -9,6 +9,12 @@
 // AP - for loops
 // TR - n/a
 
+// rotate primary stack to temp stack, checking for (P) smallest value
+// rotate back to primary (from temp), checking for (P) second smallest value
+// add both smallest and second smallest vals to temp stack
+// repeat process until no more values to process (length - n times)
+// return stack
+
 var Stack = require('./../util/Stack');
 
 var sortStack = function (stack) {
