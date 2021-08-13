@@ -7,6 +7,10 @@
 // C - Time Complexities Space Comp, max vals per stack
 // E/DQ - n/a
 
+//DS - stackSet is array, capacity is object
+//AP -
+//TR - n/a
+
 var Stack = require('./../util/Stack');
 
 class StackOfPlates {
