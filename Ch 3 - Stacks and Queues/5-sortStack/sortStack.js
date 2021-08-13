@@ -5,6 +5,10 @@
 // C - Time complexity? Space Complexity? range of numbers
 // E-DQs - stack with one value, stack with no value, not a stack
 
+// DS - we are only able to use one additional stack
+// AP - for loops
+// TR - n/a
+
 var Stack = require('./../util/Stack');
 
 var sortStack = function (stack) {
