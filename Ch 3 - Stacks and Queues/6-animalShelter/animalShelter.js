@@ -9,6 +9,10 @@ Queue.prototype.enqueue = Queue.prototype.add;
 // C - Time and Space, animal restrictions, vet size restrictions (capaticity)
 // E-DQ's - not animal, no animal, at capacity
 
+// DS - could use two queue (one for dogs, one for cats)
+// AP - loop through
+// TR - n/a
+
 var AnimalShelter = function () {
   this.dogQueue = new Queue;
   this.catQueue = new Queue;
