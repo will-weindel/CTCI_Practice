@@ -19,7 +19,7 @@ var Stack = require('./../util/Stack');
 class StackOfPlates {
   constructor(capacity) {
     this.capacity = capacity;
-    this.stackSet = [[]];
+    this.stackSet = [new Stack()];
     this.currentStackSize = 0;
     this.currentStack = this.stackSet[0];
   }
@@ -33,7 +33,7 @@ class StackOfPlates {
       this.currentStack.push(value);
       this.currentStackSize++;
     } else {
-      this.stackSet.push([]);
+      this.stackSet.push(new Stack());
       this.currentStack = this.stackSet[this.stackSet.length - 1];
       this.currentStack.push(value);
       this.currentStackSize = 1;
