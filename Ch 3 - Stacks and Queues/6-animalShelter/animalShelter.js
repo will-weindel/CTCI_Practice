@@ -13,6 +13,10 @@ Queue.prototype.enqueue = Queue.prototype.add;
 // AP - loop through
 // TR - n/a
 
+// create two queues (one for dogs, one for cats)
+// dequeue animals seperately (if requested)
+// add a timestamp to each animal and compare (this will let us get the oldest)
+
 var AnimalShelter = function () {
   this.dogQueue = new Queue;
   this.catQueue = new Queue;
