@@ -55,6 +55,7 @@ var sortToMainStack = (fromStack, toStack, iterations) => {
   for (var i = 0; i <= iterations; i++) {
     toStack.push(fromStack.pop());
   }
+  return;
 }
 
 module.exports = sortStack;
