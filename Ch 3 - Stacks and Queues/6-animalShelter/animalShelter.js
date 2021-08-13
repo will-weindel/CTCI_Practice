@@ -4,12 +4,19 @@ var Queue = require('./../util/Queue');
 
 Queue.prototype.enqueue = Queue.prototype.add;
 
+// I - various inputs, could be an animal type
+// O - animal
+// C - Time and Space, animal restrictions, vet size restrictions (capaticity)
+// E-DQ's - not animal, no animal, at capacity
+
 var AnimalShelter = function () {
-  //
+  this.dogQueue = new Queue;
+  this.catQueue = new Queue;
 };
 
 AnimalShelter.prototype.enqueue = function (animal) {
-  //
+  if (animal === 'cat') this.catQueue.enqueue(animal);
+  else this.dogQueue.enqueue(animal);
 };
 
 AnimalShelter.prototype.dequeueAny = function () {
@@ -17,15 +24,15 @@ AnimalShelter.prototype.dequeueAny = function () {
 };
 
 AnimalShelter.prototype.dequeueByType = function (type) {
-  //
+  return type === cat ? this.catQueue.dequeue() : this.dogQueue.dequeue();
 };
 
 AnimalShelter.prototype.dequeueDog = function () {
-  //
+  return this.dogQueue.dequeue();
 };
 
 AnimalShelter.prototype.dequeueCat = function () {
-  //
+  return this.catQueue.dequeue();
 };
 
 module.exports = AnimalShelter;
