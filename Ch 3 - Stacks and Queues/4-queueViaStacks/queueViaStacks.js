@@ -13,28 +13,28 @@ class MyQueue {
   }
 
   add(value) {
-    while(!oldestStack.isEmpty()) {
+    while(!this.oldestStack.isEmpty()) {
       this.newestStack.push(this.oldestStack.pop());
     }
     this.newestStack.push(value);
   }
 
   remove() {
-    while(!newestStack.isEmpty()) {
+    while(!this.newestStack.isEmpty()) {
       this.oldestStack.push(this.newestStack.pop());
     }
-    this.oldestStack.pop();
+    return this.oldestStack.pop();
   }
 
   peek() {
-    while(!newestStack.isEmpty()) {
+    while(!this.newestStack.isEmpty()) {
       this.oldestStack.push(this.newestStack.pop());
     }
     this.oldestStack.peek();
   }
 
   isEmpty() {
-    if (newestStack.isEmpty() && oldestStack.isEmpty()) return true;
+    if (this.newestStack.isEmpty() && this.oldestStack.isEmpty()) return true;
     return false;
   }
 }
