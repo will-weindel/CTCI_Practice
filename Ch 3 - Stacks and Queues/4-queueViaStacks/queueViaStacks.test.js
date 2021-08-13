@@ -5,6 +5,7 @@ let queue = new QueueViaStacks();
 let testQueue = new QueueViaStacksSol();
 
 test('Creates a queue from stacks, wow', () => {
+  console.log(queue, testQueue);
   expect(queue).toEqual(testQueue);
 
   expect(queue.isEmpty()).toEqual(testQueue.isEmpty());
