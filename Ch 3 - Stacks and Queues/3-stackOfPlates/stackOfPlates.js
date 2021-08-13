@@ -2,6 +2,11 @@
 
 //BONUS implement a function popAt which performs a pop operation on a specific sub-stack.
 
+// I - implement a DS that represents multiple stacks
+// O - the DS
+// C - Time Complexities Space Comp, max vals per stack
+// E/DQ - n/a
+
 var Stack = require('./../util/Stack');
 
 class StackOfPlates {
