@@ -3,7 +3,7 @@
 // I - two node references, one graph reference
 // O - boolean (based on route)
 // C - Time Comp | Space Comp | size of graph, type of graph, graph values (odd nodes)
-// E - node does not exist, non node value
+// E/DQs - node does not exist, non node value
 
 // DS - two caches for 'seen' nodes, two queues to hold nodes
 // AP - BFS, for loop
