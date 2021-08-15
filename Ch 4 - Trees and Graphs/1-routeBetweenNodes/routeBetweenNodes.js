@@ -9,6 +9,11 @@
 // AP - BFS, for loop
 // TR - n/a
 
+// check if both nodes exist in graph (if not, return false)
+// BFS on first node, using second node as target (if found, return true)
+// BFS on second node, using first node as target (if found, return true)
+// return false
+
 var Graph = require('./../util/Graph');
 var Queue = require('./../util/Queue');
 
