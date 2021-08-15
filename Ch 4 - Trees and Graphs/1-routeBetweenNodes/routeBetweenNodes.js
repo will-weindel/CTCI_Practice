@@ -5,6 +5,10 @@
 // C - Time Comp | Space Comp | size of graph, type of graph, graph values (odd nodes)
 // E - node does not exist, non node value
 
+// DS - two caches for 'seen' nodes, two queues to hold nodes
+// AP - BFS, for loop
+// TR - n/a
+
 var Graph = require('./../util/Graph');
 var Queue = require('./../util/Queue');
 
