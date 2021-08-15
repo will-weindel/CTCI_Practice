@@ -47,7 +47,7 @@ function searchForTargetNode(rootNode, target, queue, cache, graph) {
     if (node === target) {
       return true;
     } else {
-      addNewNodesToQueue(node, queue, cache, graph)
+      addNewNodesToQueue(node, queue, cache, graph);
     }
     if (queue.isEmpty()) break;
   }
