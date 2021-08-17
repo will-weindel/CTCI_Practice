@@ -5,6 +5,10 @@
 // C - Time O(n) | O(n) | min/max array length
 // E/DQs - n/a
 
+// DS - create BST
+// AP - recursion, for loop
+// TR - n/a
+
 var Queue = require('./../util/Queue');
 var BST = require('./../util/BST');
 
