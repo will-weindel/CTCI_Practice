@@ -19,9 +19,11 @@ var BST = require('./../util/BST');
 var insertBalanced = function (array) {
   let middle = Math.ceil(array.length / 2) - 1;
   let binarySearchTree = new BST(array[middle]);
+  let leftArray = array.slice(0, middle);
+  let rightArray = array.slice(middle + 1);
 
-  treeify(array.slice(0, middle), binarySearchTree);
-  treeify(array.slice(middle + 1), binarySearchTree);
+  treeify(leftArray, binarySearchTree);
+  treeify(rightArray, binarySearchTree);
 
   return binarySearchTree;
 
