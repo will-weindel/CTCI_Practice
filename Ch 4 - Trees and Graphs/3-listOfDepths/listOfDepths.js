@@ -21,7 +21,30 @@ var LinkedList = require('./../util/LinkedList');
 var Queue = require('./../util/Queue');
 
 var listOfDepths = function (bst) {
-  //wow, such code
+  let parentList = new LinkedList();
+  let subList = new LinkedList();
+  let rootQueue = new Queue();
+  let childQueue = new Queue();
+  rootQueue.enqueue(bst);
+
+  while(!rootQueue.isEmpty()) {
+    let node = rootQueue.dequeue()
+    subList.append(node);
+    if (node.left) {
+      childQueue.enqueue(node.left);
+    }
+    if (node.right) {
+      childQueue.enqueue(node.right);
+    }
+    if (rootQueue.isEmpty()) {
+      parentList.append(subList);
+      subList = new LinkedList();
+      rootQueue = childQueue;
+      childQueue = new Queue();
+    }
+  }
+
+  return parentList;
 };
 
 module.exports = listOfDepths;
