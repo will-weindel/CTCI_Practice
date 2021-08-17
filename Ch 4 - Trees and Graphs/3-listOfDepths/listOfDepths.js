@@ -5,6 +5,10 @@
 // C - Time O(n) | Space O(n) | min/max nodes in bst
 // E/DQs - handle null values? odd node values (like LL)
 
+// DS parentList, subList, rootQueue, childQueue
+// AP BFS
+// TR n/a
+
 var BST = require('./../util/BST');
 var LinkedList = require('./../util/LinkedList');
 var Queue = require('./../util/Queue');
