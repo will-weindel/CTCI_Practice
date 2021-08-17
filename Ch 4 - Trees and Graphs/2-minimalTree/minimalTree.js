@@ -9,6 +9,10 @@
 // AP - recursion, for loop
 // TR - n/a
 
+// divide array in half, set root node to middle number
+// for each half, set left and right node to middle of half
+// repeat process until no remaining nodes
+
 var Queue = require('./../util/Queue');
 var BST = require('./../util/BST');
 
