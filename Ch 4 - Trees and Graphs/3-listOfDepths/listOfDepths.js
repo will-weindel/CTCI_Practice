@@ -9,6 +9,13 @@
 // AP BFS
 // TR n/a
 
+// create parent LL
+// add root node to new LL (add this to parent)
+  // add root node left/right to queue
+// for each node in child queue, add to new LL
+  // add child nodes to new Queue
+//return if no remaining child nodes in new queue
+
 var BST = require('./../util/BST');
 var LinkedList = require('./../util/LinkedList');
 var Queue = require('./../util/Queue');
