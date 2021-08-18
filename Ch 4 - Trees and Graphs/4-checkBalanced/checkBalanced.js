@@ -5,6 +5,10 @@
 // C - Time | Space | min height, max height
 // E - n/a
 
+// DS - n/a
+// AP - recursion
+// TR - n/a
+
 var BST = require('./../util/BST');
 
 var checkBalanced = function (bst) {
