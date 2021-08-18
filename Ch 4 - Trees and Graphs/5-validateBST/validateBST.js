@@ -15,6 +15,12 @@ var BinaryTree = function (value) {
 // AP - recursion
 // TR - n/a
 
+// need to check if node value is within a range,
+// traverse to the left, range is -Infinity, previous node value,
+// traverse to the right, range is previous node value, Infinity.
+// these values can collapse
+// out limits are based on above values, not child values
+
 var validateBST = function (bt) {
   let leftWithinRange = valueWithinRange(bt.left, -Infinity, bt.value);
   let rightWithinRange = valueWithinRange(bt.right, bt.value, Infinity);
