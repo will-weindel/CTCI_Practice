@@ -15,8 +15,19 @@
 
 var BST = require('./../util/BST');
 
-var checkBalanced = function (bst) {
-  //cody code code
+var checkBalanced = function (node) {
+  return checkNodeDeepness(node) === false ? false : true;
 };
+
+var checkNodeDeepness = function(node) {
+  if (!node) return 0;
+  let leftDeepness = checkNodeDeepness(node.left);
+  let rightDeepness = checkNodeDeepness(node.right);
+  let difference = Math.abs(leftDeepness - rightDeepness);
+  if (difference > 1 || leftDeepness === false || rightDeepness === false) {
+    return false;
+  }
+  return 1 + Math.max(leftDeepness, rightDeepness);
+}
 
 module.exports = checkBalanced;
