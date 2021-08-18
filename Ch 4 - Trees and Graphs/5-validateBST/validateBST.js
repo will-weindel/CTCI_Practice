@@ -8,8 +8,12 @@ var BinaryTree = function (value) {
 
 // I - Binary Tree
 // O - boolean based on bstness
-// C - Time O(n) | Space O(1) | min max tree size, min max vals, repeats?
+// C - Time O(n) | Space O(n) | min max tree size, min max vals, repeats?
 // E - single bt, non bt
+
+// DS - n/a
+// AP - recursion
+// TR - n/a
 
 var validateBST = function (bt) {
   let leftWithinRange = valueWithinRange(bt.left, -Infinity, bt.value);
