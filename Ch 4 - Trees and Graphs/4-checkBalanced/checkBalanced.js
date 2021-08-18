@@ -9,6 +9,10 @@
 // AP - recursion
 // TR - n/a
 
+// the general idea is to compare the max height of left tree to the max height of the right
+// if the height of the left if greater than the height of the right, tree is unbalanced
+// else it is balanced
+
 var BST = require('./../util/BST');
 
 var checkBalanced = function (bst) {
