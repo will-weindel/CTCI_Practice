@@ -16,6 +16,9 @@ var BSTp = function (value) {
 // AP - iterative (while loop)
 // TR - n/a
 
+// if right node, successor is the smallest 'leftmost' value of right child node
+// if no right node, successor is first parent node greater than current node
+
 var findSuccessor = function (node) {
   let currentnode = node.right;
   while (currentnode) {
