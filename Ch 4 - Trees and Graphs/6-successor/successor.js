@@ -7,8 +7,31 @@ var BSTp = function (value) {
   this.parent = null;
 };
 
+// I - node of a BST
+// O - successor node
+// C - Time O(logN) | Space O(1) | min max
+// E - non-node value
+
 var findSuccessor = function (node) {
-  //write your own success
+  let currentnode = node.right;
+  while (currentnode) {
+    if (!currentnode.left) {
+      return currentnode;
+    }
+    currentnode = currentnode.left
+  }
+
+  let parent = node.parent;
+  currentnode = node;
+
+  while (parent) {
+    if (parent.right !== currentnode) {
+      return parent;
+    }
+    currentnode = parent;
+    parent = parent.parent;
+  }
+  return null;
 };
 
 module.exports = findSuccessor;
