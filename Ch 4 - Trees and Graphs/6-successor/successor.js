@@ -12,6 +12,10 @@ var BSTp = function (value) {
 // C - Time O(logN) | Space O(1) | min max
 // E - non-node value
 
+// DS - bst | node
+// AP - iterative (while loop)
+// TR - n/a
+
 var findSuccessor = function (node) {
   let currentnode = node.right;
   while (currentnode) {
