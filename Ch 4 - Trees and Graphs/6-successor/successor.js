@@ -29,13 +29,11 @@ var findSuccessor = function (node) {
   }
 
   let parent = node.parent;
-  currentnode = node;
 
   while (parent) {
-    if (parent.right !== currentnode) {
+    if (parent.value >= node.value) {
       return parent;
     }
-    currentnode = parent;
     parent = parent.parent;
   }
   return null;
