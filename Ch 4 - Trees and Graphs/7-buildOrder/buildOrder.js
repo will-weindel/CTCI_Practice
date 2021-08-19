@@ -12,6 +12,11 @@ Input:
   Output: f, e, a, b, d, c
 */
 
+// I - list of projects and dependencies
+// O - order of projects
+// C - Topological Sort Time and Space
+// E - cycles in graph
+
 var Graph = require('./../util/Graph');
 
 Graph.prototype.findNodeWithNoChildren = function () {
