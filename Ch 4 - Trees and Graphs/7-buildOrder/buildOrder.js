@@ -17,6 +17,10 @@ Input:
 // C - Topological Sort Time and Space
 // E - cycles in graph
 
+// DS - graph,
+// AP - topolocial sort
+// TR - n/a
+
 var Graph = require('./../util/Graph');
 
 Graph.prototype.findNodeWithNoChildren = function () {
