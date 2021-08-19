@@ -21,6 +21,11 @@ Input:
 // AP - topolocial sort
 // TR - n/a
 
+// add projects to graph
+// add edges to project's graph
+// add projects (with no dep.) to order holder
+  // remove these projects and their edges, repeat
+
 var Graph = require('./../util/Graph');
 
 Graph.prototype.findNodeWithNoChildren = function () {
