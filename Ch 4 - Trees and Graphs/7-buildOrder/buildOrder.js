@@ -33,7 +33,48 @@ Graph.prototype.findNodeWithNoChildren = function () {
 };
 
 var buildOrder = function (projects, dependencies) {
-  //build some order in your life
+  let projectGraph = {};
+  let numberOfProjects = projects.length;
+  let projectOrder = [];
+  addProjectsToGraph(projectGraph, projects);
+  addEdgesToGraph(projectGraph, dependencies);
+  return orderProjects(projectOrder, projectGraph, numberOfProjects);
 };
+
+const addProjectsToGraph = function(graph, projects) {
+  for (let i = 0; i < projects.length; i++) {
+    graph[projects[i]] = {};
+  }
+  return;
+}
+
+const addEdgesToGraph = function(graph, dependencies) {
+  for (let i = 0; i < dependencies.length; i++) {
+    graph[dependencies[i][1]][dependencies[i][0]] = 1;
+  }
+  return;
+}
+
+const orderProjects = function(orderArray, projectGraph, remainingProjects) {
+  while (remainingProjects) {
+    let removedProjects = [];
+    for (let key in projectGraph) {
+      if (Object.keys(projectGraph[key]).length === 0) {
+        removedProjects.push(key);
+        orderArray.push(key);
+        delete projectGraph[key];
+        remainingProjects--;
+      }
+    }
+    for (let edge of removedProjects) {
+      for (let key in projectGraph) {
+        if (projectGraph[key][edge]) {
+          delete projectGraph[key][edge];
+        }
+      }
+    }
+  }
+  return orderArray;
+}
 
 module.exports = buildOrder;
