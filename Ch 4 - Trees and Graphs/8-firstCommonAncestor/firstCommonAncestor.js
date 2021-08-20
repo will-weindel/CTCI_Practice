@@ -34,15 +34,15 @@ var firstCommonAncestor = function (node1, node2) {
   const nodeTwoPathLength = getPathLength(node2);
   const difference = Math.abs(nodeOnePathLength - nodeTwoPathLength);
   let nodeWithGreaterPath = nodeOnePathLength >= nodeTwoPathLength ? node1 : node2;
-  let nodeWithSmallerPath = nodeOnePathLength >= nodeTwoPathLength ? node2 : node1;
+  let nodeWithShorterPath = nodeOnePathLength >= nodeTwoPathLength ? node2 : node1;
 
   nodeWithGreaterPath = traverseNodePath(nodeWithGreaterPath, difference);
 
-  while (nodeWithSmallerPath) {
-    if (nodeWithSmallerPath === nodeWithGreaterPath) {
-      return nodeWithSmallerPath.value;
+  while (nodeWithShorterPath) {
+    if (nodeWithShorterPath === nodeWithGreaterPath) {
+      return nodeWithShorterPath.value;
     }
-    nodeWithSmallerPath = nodeWithSmallerPath.parent;
+    nodeWithShorterPath = nodeWithShorterPath.parent;
     nodeWithGreaterPath = nodeWithGreaterPath.parent;
   }
   return null;
