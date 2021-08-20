@@ -5,6 +5,11 @@ var BST = require('./../util/BST');
 // C - Time O(n2) | Space recursion
 // E - n/a
 
+// Start at root, locate all possible next moves
+// add moves to storage, loop through each key, passing remaining moves
+ // to next recursive turn
+// when no moves remaining, add combination to holder
+
 
 var bstSequences = function (bst) {
   var sequences = [];
