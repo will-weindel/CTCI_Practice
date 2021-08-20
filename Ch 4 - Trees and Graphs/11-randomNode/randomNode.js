@@ -5,23 +5,9 @@ from the tree. All nodes should be equally likely to be chosen. Design and imple
 for getRandomNode, and explain how you would implement the rest of the methods.
 */
 
-/* helper function - sum of an array */
-var SumArr = function (arr) {
-  return arr.reduce((total, num) => total + num, 0);
-};
+//implements BinaryTree factory function
+//implements BinaryNode factory function
+//adds insert, delete, getrandom and _getLastNodeValue
 
-var BinaryTree = function (value) {
-  this.value = value;
-  this.left = null;
-  this.right = null;
-};
-
-BinaryTree.prototype.countPathsWithRoot = function (value, path) {
-  //methods
-};
-
-BinaryTree.prototype.pathsWithSum = function (value) {
-  //on methods
-};
 
 module.exports = BinaryTree;

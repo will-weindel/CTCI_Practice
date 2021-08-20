@@ -20,8 +20,34 @@ output = 2
 paths = [3, 2, 1], [6]
 */
 
+var SumArr = function (arr) {
+  return arr.reduce((total, num) => total + num, 0);
+};
+
+var BinaryTree = function (value) {
+  this.value = value;
+  this.left = null;
+  this.right = null;
+};
+
+BinaryTree.prototype.countPathsWithRoot = function (value, path) {
+  //methods
+};
+
+BinaryTree.prototype.pathsWithSum = function (value) {
+  //on methods
+};
+
 var pathsWithSum = function (array) {
   // find da paths
+};
+
+BinaryTree.prototype.countPathsWithRoot = function (value, path) {
+  //methods
+};
+
+BinaryTree.prototype.pathsWithSum = function (value) {
+  //on methods
 };
 
 module.exports = pathsWithSum;
