@@ -17,6 +17,9 @@ var Tree = function (value) {
 // C - Time O(n) | Space O(n)
 // E - n/a
 
+//recurse through first tree to find node === to tree 2 root
+//once tree2 node is found (if found) continue to recurse, checking node against node
+
 var isSame = function (tree1, tree2) {
   let treeOneStartingNode = recurseTreeOne(tree1, tree2);
   if (treeOneStartingNode) {
