@@ -9,6 +9,8 @@ for getRandomNode, and explain how you would implement the rest of the methods.
 //implements BinaryNode factory function
 //adds insert, delete, getrandom and _getLastNodeValue
 
+//recreate to use BST and O log(n) randomness
+
 
 var BinaryNode = function (value) {
   this.value = value;
