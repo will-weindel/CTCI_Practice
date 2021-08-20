@@ -20,6 +20,11 @@ BinaryTree.prototype.isAncestor = function (node2) {
 // C - Time O(n) | Space O(1)
 // E - single node (same node), nodes from different trees?
 
+// get length of first path
+// get length of second path
+// move pointer to correct starting position
+// move both pointer until equal
+
 // DS - no addt. DS (Space is O(1))
 // AP - for and while loops
 // TR - move pointer to correct starting node
