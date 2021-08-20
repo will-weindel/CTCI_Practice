@@ -20,6 +20,10 @@ BinaryTree.prototype.isAncestor = function (node2) {
 // C - Time O(n) | Space O(1)
 // E - single node (same node), nodes from different trees?
 
+// DS - no addt. DS (Space is O(1))
+// AP - for and while loops
+// TR - move pointer to correct starting node
+
 var firstCommonAncestor = function (node1, node2) {
   const nodeOnePathLength = getPathLength(node1);
   const nodeTwoPathLength = getPathLength(node2);
