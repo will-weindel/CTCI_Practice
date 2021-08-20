@@ -10,6 +10,10 @@ var BST = require('./../util/BST');
  // to next recursive turn
 // when no moves remaining, add combination to holder
 
+// DS - hashmap to hold next possible moves
+// AP - recursion, for loops
+// TR - n/a
+
 
 var bstSequences = function (bst) {
   var sequences = [];
