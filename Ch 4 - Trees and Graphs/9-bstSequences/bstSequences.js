@@ -6,26 +6,51 @@ arrays that could have led to this tree.
 
 var BST = require('./../util/BST');
 
-var bstSequences = function (bst) {
-  if (!bst.right && !bst.left) return 1;
-  let parentQueue = [bst];
-  let sum = 0;
-  while (parentQueue.length) {
-    let childQueue = [];
-    for (var node of parentQueue) {
-      if (node.right) childQueue.push(node.right);
-      if (node.left) childQueue.push(node.left);
-    }
-    sum += findFactorial(childQueue.length);
-    parentQueue = childQueue;
-  }
-  return sum;
-};
+// I - binary search tree
+// O - list of arrays
+// C - Time O(n2) | Space recursion
+// E - n/a
 
-const findFactorial = function(num) {
-  if (num === 0) return 0;
-  if (num === 1) return 1;
-  return num * findFactorial(num - 1);
+// Start at root, locate all possible next moves
+// add moves to storage, loop through each key, passing remaining moves
+ // to next recursive turn
+// when no moves remaining, add combination to holder
+
+// DS - hashmap to hold next possible moves
+// AP - recursion, for loops
+// TR - n/a
+
+var bstSequences = function (bst) {
+  let nextMovesList = new Map();
+  let uniqueCombo = [bst.value];
+  let comboSet = [];
+
+  findNextMoves(bst, nextMovesList);
+  addMovesToCombo(nextMovesList, uniqueCombo, comboSet);
+  return comboSet;
+}
+
+const findNextMoves = function(node, uniqueMoves) {
+  if (node.left) uniqueMoves.set(node.left.value, node.left);
+  if (node.right) uniqueMoves.set(node.right.value, node.right);
+  return;
+}
+
+const addMovesToCombo = function(currentMoves, combo, set) {
+  if (!currentMoves.size) {
+    set.push(combo.slice(0));
+    return;
+  }
+  for (let [value, node] of currentMoves) {
+    let nextMoves = new Map(currentMoves);
+    combo.push(value);
+    findNextMoves(node, nextMoves);
+    nextMoves.delete(value);
+    addMovesToCombo(nextMoves, combo, set);
+    nextMoves.set(value, node);
+    combo.pop();
+  }
+  return;
 }
 
 module.exports = bstSequences;
