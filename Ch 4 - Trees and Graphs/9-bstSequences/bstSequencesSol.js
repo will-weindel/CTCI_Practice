@@ -1,5 +1,11 @@
 var BST = require('./../util/BST');
 
+// I - binary search tree
+// O - list of arrays
+// C - Time O(n2) | Space recursion
+// E - n/a
+
+
 var bstSequences = function (bst) {
   var sequences = [];
   var recurse = function (nodes, travelled) {
