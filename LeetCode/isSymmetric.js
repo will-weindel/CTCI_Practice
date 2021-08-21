@@ -3,6 +3,9 @@
 // ** Mis - not adding multiple ||'s to an if statement
 // ** Mis - used wrong property and also '==';
 
+//this solution is preOrderTraversal, Time complexity is O(n) and space is O(1) if we ignore the stack
+ // otherwise Space is O(heightOfTree)
+
 var isSymmetric = function(root) {
   if (!root) return false;
   return checkNodesAreSymmetric(root.left, root.right);
@@ -29,3 +32,26 @@ const checkNodesAreSymmetric = function(leftNode, rightNode) {
 // }
 
 // notice the return statement uses a && to pass bool info to previous call
+
+//[1,2,2,3,4,4,3]
+
+const isSymmetric = function(root) {
+  if (!root) return false;
+  return checkNodesAreSymmetric(root.left, root.right);
+}
+
+const checkNodesAreSymmetric = function(node1, node2) {
+  let stack = [node1, node2];
+  let firstNode, secondNode;
+
+  while (firstNode || secondNode || stack.length) {
+    firstNode = stack.pop();
+    secondNode = stack.pop();
+
+    if (!firstNode && !secondNode) continue;
+    if (!firstNode || !secondNode || firstNode.val !== secondNode.val) return false;
+    stack.push(firstNode.left, secondNode.right);
+    stack.push(firstNode.right, secondNode.left);
+  }
+  return true;
+}
