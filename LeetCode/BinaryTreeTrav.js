@@ -10,6 +10,11 @@
  * @param {TreeNode} root
  * @return {number[]}
  */
+
+// Below solution uses recursion (non-memoized) - not sure if memoization would help here
+// ** Mis: not adding correct number of parameters - be sure to update all func calls with param updates
+// ** Mis: spending too much time worrying about variable names
+
  var inorderTraversal = function(root) {
   if (!root.left && !root.right) return [root.val];
   let inOrderStorage = [];
