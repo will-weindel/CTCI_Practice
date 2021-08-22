@@ -30,24 +30,27 @@ var BinaryTree = function (value) {
   this.right = null;
 };
 
-BinaryTree.prototype.countPathsWithRoot = function (value, path) {
-  //methods
-};
+BinaryTree.prototype.getPaths = function(target) {
+  if (!this.rootNode) return 0;
 
-BinaryTree.prototype.pathsWithSum = function (value) {
-  //on methods
-};
+  let nodeValueStack = [];
+  let uniquePaths = 0;
 
-var pathsWithSum = function (array) {
-  // find da paths
-};
+  function _addNodeToPath(node, index, sum) {
+    if (!node) return;
+    if (node.value + sum > target) {
+      sum -= nodeValueStack[index];
+      index++;
+    }
+    if (sum === target) uniquePaths++;
+    sum += node.value;
+    nodeValueStack.push(node.value);
+    _addNodeToPath(node.left, index, sum);
+    _addNodeToPath(node.right, index, sum);
+    nodeValueStack.pop();
+    return;
+  }
 
-BinaryTree.prototype.countPathsWithRoot = function (value, path) {
-  //methods
-};
-
-BinaryTree.prototype.pathsWithSum = function (value) {
-  //on methods
-};
-
-module.exports = pathsWithSum;
+  _addNodeToPath(this.rootNode, 0, 0);
+  return uniquePaths;
+}
