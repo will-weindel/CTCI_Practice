@@ -10,13 +10,12 @@
 // AP - top down recursion
 // TR - n/a
 
+// this is a top-down recursive approach (each value depends on a sub-derived value)
 // this approach caches an initial value (it could cache more)
 // the return statement uses a check to avoid null/NaN error
 
-const walkingUpStairs = function(n) {
-  const stairPaths = {
-    0: 1
-  };
+const walkingDownStairs = function(n) {
+  const stairPaths = { 0: 1 };
 
   const stepDown = function(n) {
     if (!stairPaths[n - 1]) {
@@ -30,4 +29,23 @@ const walkingUpStairs = function(n) {
   return stepDown(n);
 }
 
-module.exports = walkingUpStairs;
+// this approach uses a bottom up iterative approach
+// it adds all cached values first, then returns the final results based on cache
+// it could be optimized more by only storing the final three values.
+
+const walkingUpStairs = function(n) {
+  const stairPaths = { 0: 1 };
+
+  for (let i = 1; i <= n; i++) {
+      stairPaths[i] = (stairPaths[i - 1] || 0) +
+                      (stairPaths[i - 2] || 0) +
+                      (stairPaths[i - 3] || 0);
+  }
+
+  return stairPaths[n];
+}
+
+module.exports = {
+  walkingUpStairs,
+  walkingDownStairs
+}
