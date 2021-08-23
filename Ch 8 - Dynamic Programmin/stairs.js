@@ -29,3 +29,5 @@ const walkingUpStairs = function(n) {
 
   return stepDown(n);
 }
+
+module.exports = walkingUpStairs;
