@@ -15,18 +15,16 @@
  // comp - cache | index (P) | halfLenght
 
  const findMagicIndex = function(array) {
-  let indexCache = {};
-  let middleIndex = Math.floor(length / 2);
-  let halfLength = Math.ceil(array.length / 2);
+  let low = 0;
+  let high = array.length - 1;
 
-  while (!indexCache[middleIndex]) {
+  while (low <= high) {
+    let middleIndex = Math.floor((high + low) / 2);
     if (array[middleIndex] === middleIndex) return middleIndex;
-    indexCache[middleIndex] = 1;
-    halfLength = Math.ceil(halfLength / 2);
-    if (array[middleIndex] < middleIndex) {
-      middleIndex += halfLength;
+    if (array[middleIndex] > middleIndex) {
+      high = middleIndex - 1;
     } else {
-      middleIndex -= halfLength;
+      low = middleIndex + 1;
     }
   }
   return null;
