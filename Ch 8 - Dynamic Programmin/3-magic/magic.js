@@ -13,3 +13,21 @@
  // AP - iterative - binary search (log search)
 
  // comp - cache | index (P) | halfLenght
+
+ const findMagicIndex = function(array) {
+  let indexCache = {};
+  let middleIndex = Math.floor(length / 2);
+  let halfLength = Math.ceil(array.length / 2);
+
+  while (!indexCache[middleIndex]) {
+    if (array[middleIndex] === middleIndex) return middleIndex;
+    indexCache[middleIndex] = 1;
+    halfLength = Math.ceil(halfLength / 2);
+    if (array[middleIndex] < middleIndex) {
+      middleIndex += halfLength;
+    } else {
+      middleIndex -= halfLength;
+    }
+  }
+  return null;
+}
