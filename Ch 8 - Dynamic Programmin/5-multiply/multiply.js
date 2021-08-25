@@ -34,3 +34,5 @@ const multiplyWithoutMultiply = function(n, m) {
 
   return accumulator;
 }
+
+module.exports = multiplyWithoutMultiply;
