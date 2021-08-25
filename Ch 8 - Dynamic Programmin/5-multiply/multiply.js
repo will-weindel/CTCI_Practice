@@ -8,3 +8,29 @@
 // once base-2 value is greater than first input, loop backwards through cache,
   //add cache vals to accum., subtract base vals from original num
 // return accum.
+
+const multiplyWithoutMultiply = function(n, m) {
+  if (n === 0 || m === 0) return 0;
+  if (n === 1) return m;
+  if (m === 1) return n;
+
+  let cache = {};
+  let baseTwoPlace = 1;
+  let accumulator = 0;
+
+  while (baseTwoPlace <= n) {
+    cache[baseTwoPlace] = m;
+    m<<=1;
+    baseTwoPlace<<=1;
+  }
+
+  while (n > 0) {
+    baseTwoPlace>>=1;
+    if (baseTwoPlace <= n) {
+      accumulator += cache[baseTwoPlace];
+      n -= baseTwoPlace;
+    }
+  }
+
+  return accumulator;
+}
