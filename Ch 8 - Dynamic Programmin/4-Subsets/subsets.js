@@ -9,17 +9,21 @@
 // basically you are taking what is already there, add a new value to all items, then
   // adding both groups back together
 
-  const getSubsets = function(set) {
-    let currentSubsetCache = [[], [set[0]]];
+const getSubsets = function(set) {
+  if (!set.length) return 1;
+  if (set.length === 1) return 2;
+  let currentSubsetCache = [[], [set[0]]];
 
-    for (let i = 1; i < set.length; i++) {
-      let nextSubsetCache = [];
-      for (let subset of currentSubsetCache) {
-        let newSubset = subset.slice(0);
-        newSubset.push(set[i]);
-        nextSubsetCache.push(subset, newSubset);
-      }
-      currentSubsetCache = nextSubsetCache;
+  for (let i = 1; i < set.length; i++) {
+    let nextSubsetCache = [];
+    for (let subset of currentSubsetCache) {
+      let newSubset = subset.slice(0);
+      newSubset.push(set[i]);
+      nextSubsetCache.push(subset, newSubset);
     }
-    return currentSubsetCache;
+    currentSubsetCache = nextSubsetCache;
   }
+  return currentSubsetCache.length;
+}
+
+  module.exports = getSubsets;
