@@ -35,4 +35,37 @@ const multiplyWithoutMultiply = function(n, m) {
   return accumulator;
 }
 
+// below uses additional memoizing (recursive) technique
+
+const ALTmultiplyWithoutMultiply = function(n, m) {
+  if (n === 0 || m === 0) return 0;
+  if (n === 1) return m;
+  if (m === 1) return n;
+
+  let cache = { 0: 0, 1: m };
+
+  const helperMultiply = function(n) {
+    if (n in cache) return cache[n];
+
+    if (n % 2 === 0) {
+      cache[n] = helperMultiply(n / 2) + helperMultiply(n / 2);
+      return cache[n];
+    }
+    else {
+      cache[n] = helperMultiply((n - 1) / 2) + helperMultiply((n - 1) / 2) + cache[1];
+      return cache[n];
+    }
+  }
+
+  return helperMultiply(n);
+}
+
 module.exports = multiplyWithoutMultiply;
+
+console.log(performance.now());
+console.log(multiplyWithoutMultiply(30000, 35000));
+console.log(performance.now());
+
+console.log(performance.now());
+console.log(ALTmultiplyWithoutMultiply(30000, 35000));
+console.log(performance.now());
