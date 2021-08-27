@@ -30,8 +30,10 @@ const addLetterToPermutations = function(letter, substringCache) {
   }
 }
 
+module.exports = permutationsOfAString;
+
 // TEST
 
-console.log(permutationsOfAString('abc'));
-console.log(permutationsOfAString('abcd'));
-console.log(permutationsOfAString('abcde'));
+// console.log(permutationsOfAString('abc'));
+// console.log(permutationsOfAString('abcd'));
+// console.log(permutationsOfAString('abcde'));
