@@ -149,3 +149,24 @@ const stringCompressor = function(string) {
 
   return letterCache.length <= string.length ? letterCache.join('') : string;
 }
+
+const rotateMatrix = function(matrix) {
+  let rotatedRowsCache = {};
+  let rotatedMatrix = [];
+
+  for (let col = 0; col < matrix[0].length; col++) {
+    rotatedRowsCache[col] = [];
+    for (let row = matrix.length - 1; row >= 0; row--) {
+      rotatedRowsCache[col].push(matrix[row][col]);
+    }
+  }
+
+  for (let row = 0; row < matrix[0].length; row++) {
+    rotatedMatrix.push([]);
+    rotatedRowsCache[row].forEach(element => {
+      rotatedMatrix[row].push(element);
+    })
+  }
+
+  return rotatedMatrix;
+}
