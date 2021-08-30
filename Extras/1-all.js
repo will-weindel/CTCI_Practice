@@ -183,3 +183,34 @@ const rotateMatrix2 = function(matrix) {
 
   return rotatedMatrix;
 }
+
+const zeroOutRowsCols = function(matrix) {
+  for (let row = 0; row < matrix.length; row++) {
+    for (let col = 0; col < matrix[0].length; col++) {
+      if (matrix[row][col] === 0) {
+        matrix[row][col] = 'x';
+        break;
+      }
+    }
+  }
+
+  for (let row = 0; row < matrix.length; row++) {
+    for (let col = 0; col < matrix[0].length; col++) {
+      if (matrix[row][col] === 'x') {
+        zeroOutXMarker(row, col, matrix);
+        break;
+      }
+    }
+  }
+  return matrix;
+}
+
+const zeroOutXMarker = function(row, col, matrix) {
+  for (let i = 0; i < matrix[row].length; i++) {
+    matrix[row][i] = 0;
+  }
+  for (let i = 0; i < matrix.length; i++) {
+    matrix[i][col] = 0;
+  }
+  return;
+}
