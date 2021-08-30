@@ -170,3 +170,16 @@ const rotateMatrix = function(matrix) {
 
   return rotatedMatrix;
 }
+
+const rotateMatrix2 = function(matrix) {
+  let rotatedMatrix = [];
+
+  for (let col = 0; col < matrix[0].length; col++) {
+    rotatedMatrix.push([]);
+    for (let row = matrix.length - 1; row >= 0; row--) {
+      rotatedMatrix[col].push(matrix[row][col]);
+    }
+  }
+
+  return rotatedMatrix;
+}
