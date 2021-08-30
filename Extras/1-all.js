@@ -27,7 +27,7 @@ const isPermutation = function(str1, str2) {
   return true;
 }
 
-const isPermutation = function(str1, str2) {
+const isPermutation2 = function(str1, str2) {
   let stringCache = {};
 
   for (let i = 0; i < str1.length; i++) {
@@ -67,7 +67,7 @@ const urlify = function(string) {
   return stringBuilder.join('');
 }
 
-const urlify = function(str) {
+const urlify2 = function(str) {
   return str.split(' ').join('%20');
 }
 
@@ -88,7 +88,7 @@ const isPalindromePerm = function(string) {
   return true;
 }
 
-const isPalindromePerm = function(string) {
+const isPalindromePerm2 = function(string) {
   let letterCache = {};
 
   for (let i = 0; i < string.length; i++) {
