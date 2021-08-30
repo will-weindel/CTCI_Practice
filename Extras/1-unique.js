@@ -66,3 +66,7 @@ const urlify = function(string) {
 
   return stringBuilder.join('');
 }
+
+const urlify = function(str) {
+  return str.split(' ').join('%20');
+}
