@@ -214,3 +214,26 @@ const zeroOutXMarker = function(row, col, matrix) {
   }
   return;
 }
+
+const isStringRotation = function(str1, str2) {
+  let letterCache = {};
+
+  for (let i = 0; i < str1.length; i++) {
+    if (str1[i] in letterCache) letterCache[str1[i]]++;
+    else letterCache[str1[i]] = 1;
+  }
+
+  for (let j = 0; j < str2.length; j++) {
+    if (!letterCache[str2[j]]) return false;
+    else {
+      letterCache[str2[j]]--;
+      if (!letterCache[str2[j]]) delete letterCache[str2[j]];
+    }
+  }
+
+  for (let key in letterCache) {
+    if (letterCache[key]) return false;
+  }
+
+  return true;
+}
