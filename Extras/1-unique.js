@@ -26,3 +26,29 @@ const isPermutation = function(str1, str2) {
   }
   return true;
 }
+
+const isPermutation = function(str1, str2) {
+  let stringCache = {};
+
+  for (let i = 0; i < str1.length; i++) {
+    if (str1[i] in stringCache) {
+      stringCache[str1[i]]++;
+    } else {
+      stringCache[str1[i]] = 1;
+    }
+  }
+
+  for (let i = 0; i < str2.length; i++) {
+    if (str2[i] in stringCache) {
+      stringCache[str2[i]]--;
+    } else {
+      return false;
+    }
+  }
+
+  for (let key in stringCache) {
+    if (stringCache[key]) return false;
+  }
+
+  return true;
+}
