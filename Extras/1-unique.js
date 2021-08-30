@@ -70,3 +70,20 @@ const urlify = function(string) {
 const urlify = function(str) {
   return str.split(' ').join('%20');
 }
+
+const isPalindromePerm = function(string) {
+  let oddCount = 0;
+
+  string = [...string].sort().join('').trim();
+
+  for (let i = 0; i < string.length; i += 2) {
+    if (string[i] === string[i + 1]) continue;
+    else if (oddCount < 1) {
+      i--;
+      oddCount++;
+      continue;
+    }
+    else return false;
+  }
+  return true;
+}
