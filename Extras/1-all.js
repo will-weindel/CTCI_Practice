@@ -146,7 +146,6 @@ const stringCompressor = function(string) {
   }
 
   letterCache.push(currentLetter, count);
-  let compressedString = letterCache.join('');
 
-  return string.length >= compressedString.length ? compressedString : string;
+  return letterCache.length <= string.length ? letterCache.join('') : string;
 }
