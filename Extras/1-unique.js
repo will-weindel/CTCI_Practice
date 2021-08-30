@@ -87,3 +87,20 @@ const isPalindromePerm = function(string) {
   }
   return true;
 }
+
+const isPalindromePerm = function(string) {
+  let letterCache = {};
+
+  for (let i = 0; i < string.length; i++) {
+    if (string[i] === ' ') continue;
+    if (string[i] in letterCache) {
+      delete letterCache[string[i]];
+    } else {
+      letterCache[string[i]] = 1;
+    }
+  }
+
+  if (Object.keys(letterCache).length > 1) return false;
+
+  return true;
+}
