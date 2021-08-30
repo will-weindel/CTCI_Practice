@@ -129,3 +129,24 @@ const oneAway = function(str1, str2) {
   }
   return true;
 }
+
+const stringCompressor = function(string) {
+  let letterCache = [];
+  let currentLetter = string[0];
+  let count = 1;
+
+  for (let i = 1; i < string.length; i++) {
+    if (string[i] === currentLetter) {
+      count++
+    } else {
+      letterCache.push(currentLetter, count);
+      currentLetter = string[i];
+      count = 1;
+    }
+  }
+
+  letterCache.push(currentLetter, count);
+  let compressedString = letterCache.join('');
+
+  return string.length >= compressedString.length ? compressedString : string;
+}
