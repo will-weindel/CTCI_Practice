@@ -16,3 +16,13 @@ const isUnique2 = function(string) {
   }
   return true;
 }
+
+const isPermutation = function(str1, str2) {
+  str1 = str1.split('').sort().join();
+  str2 = [...str2].sort().join();
+
+  for (let i = 0; i < str1.length; i++) {
+    if (str1[i] !== str2[i]) return false;
+  }
+  return true;
+}
