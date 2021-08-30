@@ -52,3 +52,17 @@ const isPermutation = function(str1, str2) {
 
   return true;
 }
+
+const urlify = function(string) {
+  let stringBuilder = [];
+
+  for (let i = 0; i < string.length; i++) {
+    if (string[i] === ' ') {
+      stringBuilder.push('%20');
+    } else {
+      stringBuilder.push(string[i]);
+    }
+  }
+
+  return stringBuilder.join('');
+}
