@@ -104,3 +104,28 @@ const isPalindromePerm = function(string) {
 
   return true;
 }
+
+const oneAway = function(str1, str2) {
+  const longString = str1.length >= str2.length ? str1 : str2;
+  const shortString = longString === str1 ? str2 : str1;
+
+  let longIndex = 0;
+  let shortIndex = 0;
+  let lengthDiff = longString.length - shortString.length;
+  let changeCount = 0;
+
+  for (let i = 0; i < longString.length; i++) {
+    if (longString[longIndex] === shortString[shortIndex]) {
+      longIndex++;
+      shortIndex++;
+      continue;
+    }
+    else {
+      changeCount++;
+      if (changeCount > 1) return false;
+      longIndex++;
+      lengthDiff ? null : shortIndex++;
+    }
+  }
+  return true;
+}
