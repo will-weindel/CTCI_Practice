@@ -167,3 +167,22 @@ const sumLists2 = function(list1, list2) {
   recurseSumLists(list1.head, list2.head);
   return summedList;
 }
+
+const isPalindrome = function(list) {
+  let headPointer = list.head;
+
+  const recurseIsPalindrome = function(node) {
+    if (!node) return 1;
+
+    let booleanIdent = recurseIsPalindrome(node.next);
+
+    if (booleanIdent !== 1) return booleanIdent;
+    if (headPointer.value !== node.value) return false;
+    if (headPointer === node || headPointer.next === node) return true;
+
+    headPointer = headPointer.next;
+    return booleanIdent;
+  }
+
+  return recurseIsPalindrome(list.head);
+}
