@@ -184,6 +184,29 @@ const rotateMatrix2 = function(matrix) {
   return rotatedMatrix;
 }
 
+const rotateMatrix3 = function(matrix) {
+  for (let row = 0; row < Math.floor(matrix.length / 2); row++) {
+    for (let col = row; col < matrix[0].length - 1 - row; col++) {
+      rotateFourPlaces(row, col, matrix.length - 1, matrix);
+    }
+  }
+  return matrix;
+}
+
+const rotateFourPlaces = function(row, col, length, matrix) {
+  let top = matrix[row][col];
+  let right = matrix[col][length - row];
+  let bottom = matrix[length - row][length - col];
+  let left = matrix[length - col][row];
+
+  matrix[row][col] = left;
+  matrix[col][length - row] = top;
+  matrix[length - row][length - col] = right;
+  matrix[length - col][row] = bottom;
+
+  return;
+}
+
 const zeroOutRowsCols = function(matrix) {
   for (let row = 0; row < matrix.length; row++) {
     for (let col = 0; col < matrix[0].length; col++) {
