@@ -132,3 +132,38 @@ const sumLists = function(list1, list2) {
 
   return summedList;
 }
+
+const sumLists2 = function(list1, list2) {
+
+  if (list1.length !== list2.length) {
+    let shorterList = list1.length > list2.length ? list2 : list1;
+    for (let i = 0; i < Math.abs(list1.length - list2.length); i++) {
+      shorterList.addToHead(new Node(0));
+    }
+  }
+
+  let carryover = 0;
+  let summedList = new LinkedList();
+
+  const recurseSumLists = function(node1, node2) {
+    if (!node1 && !node2) return;
+
+    recurseSumLists(node1.next, node2.next);
+    let sum = node1.value + node2.value + carryover;
+
+    if (carryover) {
+      carryover = 0;
+    }
+
+    if (sum >= 10) {
+      sum -= 10;
+      carryover = 1;
+    }
+
+    summedList.addToHead(new Node(sum));
+    return;
+  }
+
+  recurseSumLists(list1.head, list2.head);
+  return summedList;
+}
