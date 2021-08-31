@@ -42,3 +42,37 @@ const removeKthToLast = function(num, list) {
 
   return 'Function error.'
 }
+
+const removeMiddleNode = function(list) {
+  if (!list.head) return null;
+  if (!list.head.next) {
+    let temp = list.head;
+    list.head = null;
+    list.tail = null;
+    list.length--;
+    return temp;
+  }
+  if (!list.head.next.next) {
+    let temp = list.head;
+    list.head = list.head.next;
+    list.length--;
+    return temp;
+  }
+
+  let previousNode = list.head;
+  let currentNode = previousNode.next;
+  let fastRunner = currentNode.next;
+
+  while (currentNode) {
+    if (!fastRunner.next || !fastRunner.next.next) {
+      let temp = currentNode;
+      previousNode.next = currentNode.next;
+      list.length--;
+      return currentNode;
+    }
+    previousNode = currentNode;
+    currentNode = currentNode.next;
+    fastRunner = fastRunner.next.next;
+  }
+  return 'Function error.';
+}
