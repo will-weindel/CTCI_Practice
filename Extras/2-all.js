@@ -76,3 +76,27 @@ const removeMiddleNode = function(list) {
   }
   return 'Function error.';
 }
+
+const partitionLinkedList = function(value, list) {
+  if (!list.head) return null;
+  if (!list.head.next) return list;
+
+let previousNode = list.head;
+  let currentNode = list.head.next;
+
+  while (currentNode) {
+    if (currentNode.value < value) {
+      let temp = list.head;
+      list.head = currentNode;
+      previousNode.next = currentNode.next;
+      currentNode.next = temp;
+      currentNode = previousNode.next;
+    }
+    else {
+      previousNode = currentNode;
+      currentNode = currentNode.next;
+    }
+  }
+
+  return list;
+}
