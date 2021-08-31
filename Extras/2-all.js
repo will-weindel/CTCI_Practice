@@ -186,3 +186,40 @@ const isPalindrome = function(list) {
 
   return recurseIsPalindrome(list.head);
 }
+
+const isIntersection = function(list1, list2) {
+  let currentNode1 = list1.head;
+  let currentNode2 = list2.head;
+  let list1Length = 0;
+  let list2Length = 0;
+
+  while (currentNode1 || currentNode2) {
+    if (currentNode1) {
+      list1Length++;
+      currentNode1 = currentNode1.next;
+    }
+    if (currentNode2) {
+      list2Length++;
+      currentNode2 = currentNode2.next;
+    }
+  }
+
+  let longerListNode = list1Length >= list2Length ? list1.head : list2.head;
+  let shorterListNode = list1Length >= list2Length ? list2.head : list1.head;
+
+  for (let i = 1; i <= Math.abs(list1Length - list2Length); i++) {
+    longerListNode = longerListNode.next;
+  }
+
+  while (longerListNode && shorterListNode) {
+    if (longerListNode === shorterListNode) {
+      return longerListNode;
+    }
+    else {
+      longerListNode = longerListNode.next;
+      shorterListNode = shorterListNode.next;
+    }
+  }
+
+  return false;
+}
