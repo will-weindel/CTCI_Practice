@@ -20,3 +20,25 @@ const removeDups = function(list) {
 
   return list;
 }
+
+const removeKthToLast = function(num, list) {
+  if (num > list.length) return 'No nodes.';
+  if (num <= 0) return 'No nodes.';
+  if (num === list.length) return list.removeHead();
+  if (num === 1) return list.removeTail();
+
+  let previousNode = list.head;
+  let currentNode = list.head.next;
+  let distanceToLast = list.length - 1;
+
+  while (currentNode) {
+    if (distanceToLast === num) {
+      return list.removeNode(currentNode.value);
+    }
+    previousNode = currentNode;
+    currentNode = currentNode.next;
+    distanceToLast--;
+  }
+
+  return 'Function error.'
+}
