@@ -223,3 +223,27 @@ const isIntersection = function(list1, list2) {
 
   return false;
 }
+
+const loopDetection = function(list) {
+  let slowRunner = list.head;
+  let fastRunner = list.head;
+
+  while (fastRunner) {
+    if (fastRunner === slowRunner) break;
+    if (!fastRunner.next || !fastRunner.next.next) return false;
+    else {
+      slowRunner = slowRunner.next;
+      fastRunner = fastRunner.next.next;
+    }
+  }
+
+  slowRunner = list.head;
+
+  while (slowRunner) {
+    if (slowRunner === fastRunner) return slowRunner;
+    slowRunner = slowRunner.next;
+    fastRunner = fastRunner.next;
+  }
+
+  return null;
+}
