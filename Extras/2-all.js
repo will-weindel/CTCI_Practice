@@ -1,3 +1,136 @@
+class LinkedList {
+  constructor() {
+    this.head = null;
+    this.tail = null;
+    this.length = 0;
+  }
+
+  addToHead(node) {
+    if (!this.head) {
+      this.head = node;
+      this.tail = node;
+    }
+    else {
+      let oldHead = this.head;
+      this.head = node;
+      this.head.next = oldHead;
+    }
+    this.length++;
+    return;
+  }
+
+  removeHead() {
+    if (!this.head) return null;
+    if (!this.head.next) {
+      let temp = this.head;
+      this.head = null;
+      this.tail = null;
+      this.length--;
+      return temp;
+    }
+    let temp = this.head;
+    this.head = this.head.next;
+    this.length--;
+    return temp;
+  }
+
+  addToTail(node) {
+    if (!this.head) {
+      this.head = node;
+      this.tail = node;
+    }
+    else {
+      let oldTail = this.tail;
+      this.tail = node;
+      oldTail.next = this.tail;
+    }
+    this.length++;
+    return;
+  }
+
+  removeTail() {
+    if (!this.head) return null;
+    if (!this.head.next) {
+      let temp = this.head;
+      this.head = null;
+      this.tail = null;
+      this.length--;
+      return temp;
+    }
+
+    let previousNode = this.head;
+    let currentNode = this.head.next;
+    let temp;
+
+    while (currentNode) {
+      if (!currentNode.next) {
+        temp = currentNode;
+        previousNode.next = currentNode.next;
+        this.tail = previousNode;
+      }
+      previousNode = currentNode;
+      currentNode = currentNode.next;
+    }
+
+    this.length--;
+    return temp;
+  }
+
+  removeNode(value) {
+    if (!this.head) {
+      return 'No current nodes.';
+    }
+
+    if (!this.head.next) {
+      if (this.head.value === value) {
+        this.head = null;
+        this.tail = null;
+        this.length--;
+        return value;
+      }
+      else {
+        return 'Node not found.'
+      }
+    }
+
+    if (this.head.value === value) {
+      this.head = this.head.next;
+      this.length--;
+      return value;
+    }
+
+    let previousNode = this.head;
+    let currentNode = this.head.next;
+
+    while (currentNode) {
+      if (currentNode.value === value) {
+        previousNode.next = currentNode.next;
+        this.length--;
+        break;
+      }
+      previousNode = currentNode;
+      currentNode = currentNode.next;
+    }
+
+    if (this.tail.value === value) {
+      this.tail = previousNode;
+      return value;
+    }
+    return currentNode ? value : 'Node not found.';
+  }
+}
+
+class Node {
+  constructor(value) {
+    this.value = value;
+    this.next = null;
+  }
+}
+
+
+/////////////////////////
+
+
 const removeDups = function(list) {
   if (!list.head || !list.head.next) return list;
 
