@@ -138,3 +138,61 @@ class QueueViaStacks {
     return !stack.length;
   }
 }
+class Stack {
+  constructor() {
+    this.storage = [];
+    this.tempStorage = [];
+  }
+
+  push(value) {
+    this.storage.push(value);
+  }
+
+  pop() {
+    return this.storage.pop();
+  }
+
+  sortStack() {
+    let smallestValue = null;
+    let secondSmallestValue = null;
+    let remainingItems = this.storage.length;
+
+    while (remainingItems) {
+      for (let i = 0; i < remainingItems; i++) {
+        let temp = this.storage.pop();
+        if (!smallestValue || temp < smallestValue) {
+          if (smallestValue) {
+            this.tempStorage.push(smallestValue)
+          }
+          smallestValue = temp;
+        }
+        else {
+          this.tempStorage.push(temp);
+        }
+      }
+
+      for (let i = 0; i < remainingItems - 1; i++) {
+        let temp = this.tempStorage.pop();
+        if (!secondSmallestValue || temp < secondSmallestValue) {
+          if (secondSmallestValue) {
+            this.storage.push(secondSmallestValue)
+          }
+          secondSmallestValue = temp;
+        }
+        else {
+          this.storage.push(temp);
+        }
+      }
+
+      smallestValue ? this.tempStorage.push(smallestValue) : null;
+      secondSmallestValue ? this.tempStorage.push(secondSmallestValue) : null;
+
+      smallestValue = null;
+      secondSmallestValue = null;
+      remainingItems = this.storage.length;
+    }
+
+    this.storage = this.tempStorage;
+    this.tempStorage = [];
+  }
+}
