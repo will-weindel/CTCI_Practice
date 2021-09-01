@@ -196,3 +196,90 @@ class Stack {
     this.tempStorage = [];
   }
 }
+
+class LinkedList {
+  constructor() {
+    this.head = null;
+    this.tail = null;
+  }
+
+  enqueue(node) {
+    if (!this.head) this.head = node;
+    if (!this.tail) this.tail = node;
+    else {
+      let oldTail = this.tail;
+      this.tail = node;
+      oldTail.next = node;
+    }
+    return;
+  }
+
+  dequeue() {
+    if (!this.head) return null;
+    if (!this.head.next) this.tail = null;
+    let temp = this.head;
+    this.head = this.head.next;
+    return temp;
+  }
+
+  isEmpty() {
+    return !this.head;
+  }
+
+  getOldestTimestamp() {
+    if (!this.head) return null;
+    return this.head.timeStamp;
+  }
+}
+
+class AnimalNode {
+  constructor(timeStamp, type) {
+    this.type = type;
+    this.timeStamp = timeStamp;
+    this.next = null;
+  }
+}
+
+class AnimalShelter {
+  constructor() {
+    this.dogQueue = new LinkedList();
+    this.catQueue = new LinkedList();
+    this.timeStamp = 0;
+  }
+
+  addNewDog() {
+    let newDog = new AnimalNode(this.timeStamp, 'dog');
+    this.dogQueue.enqueue(newDog);
+    this.timeStamp++;
+    return;
+  }
+
+  addNewCat() {
+    let newCat = new AnimalNode(this.timeStamp, 'cat');
+    this.catQueue.enqueue(newCat);
+    this.timeStamp++;
+    return;
+  }
+
+  adoptADog() {
+    if (this.dogQueue.isEmpty()) return 'Sorry! No dogs.';
+    return this.dogQueue.dequeue();
+  }
+
+  adoptACat() {
+    if (this.catQueue.isEmpty()) return 'Sorry! No cats.';
+    return this.catQueue.dequeue();
+  }
+
+  adoptEitherAnimal() {
+    let availableDogs = !this.dogQueue.isEmpty();
+    let availableCats = !this.catQueue.isEmpty();
+
+    if (!availableDogs && !availableCats) return 'Sorry! No animals to adopt.';
+    if (!availableDogs) return this.catQueue.dequeue();
+    if (!availableCats) return this.dogQueue.dequeue();
+
+    let boolIdent = this.dogQueue.getOldestTimestamp() < this.catQueue.getOldestTimestamp();
+    return boolIdent ? this.dogQueue.dequeue() : this.catQueue.dequeue();
+  }
+}
