@@ -57,3 +57,28 @@ class ThreeStackArray {
     return temp;
   }
 }
+
+function MinValueStack() {
+  this.storage = [];
+  this.minValues = [];
+}
+
+MinValueStack.prototype.push = function(value) {
+  this.storage.push(value);
+  if (!this.minValues.length || value < this.minValues[this.minValues.length - 1]) {
+    this.minValues.push(value);
+  }
+  return;
+}
+
+MinValueStack.prototype.pop = function() {
+  let temp = this.storage.pop();
+  if (temp === this.minValues[this.minValues.length - 1]) {
+    this.minValues.pop();
+  }
+  return temp;
+}
+
+MinValueStack.prototype.findMinValue = function() {
+  return this.minValues[this.minValues.length - 1];
+}
