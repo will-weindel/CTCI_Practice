@@ -112,3 +112,29 @@ class MultiStackArray {
     return temp;
   }
 }
+
+class QueueViaStacks {
+  constructor() {
+    this.enqueueStack = [];
+    this.dequeueStack = [];
+  }
+
+  enqueue(value) {
+    this.enqueueStack.push(value);
+    return;
+  }
+
+  dequeue() {
+    if (this.isEmpty(this.dequeueStack)) {
+      while (this.enqueueStack.length) {
+        this.dequeueStack.push(this.enqueueStack.pop());
+      }
+    }
+
+    return this.dequeueStack.pop();
+  }
+
+  isEmpty(stack) {
+    return !stack.length;
+  }
+}
