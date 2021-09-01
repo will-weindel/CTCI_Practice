@@ -82,3 +82,33 @@ MinValueStack.prototype.pop = function() {
 MinValueStack.prototype.findMinValue = function() {
   return this.minValues[this.minValues.length - 1];
 }
+
+class MultiStackArray {
+  constructor(capacity) {
+    this.storage = [[]];
+    this.stackCapacity = capacity;
+  }
+
+  push(value) {
+    let currentStack = this.storage[this.storage.length - 1];
+
+    if (currentStack.length === this.stackCapacity) {
+      this.storage.push([]);
+      currentStack = this.storage[this.storage.length - 1];
+    }
+
+    currentStack.push(value);
+    return;
+  }
+
+  pop() {
+    let currentStack = this.storage[this.storage.length - 1];
+    let temp = currentStack.pop();
+
+    if (this.storage.length > 1 && currentStack.length === 0) {
+      this.storage.pop();
+    }
+
+    return temp;
+  }
+}
