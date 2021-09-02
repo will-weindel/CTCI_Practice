@@ -89,3 +89,20 @@ const createLinkedListOfLevels = function(node) {
 
   return cacheOfLL;
 }
+
+const isTreeBalanced = function(node) {
+
+  const recurseIsTreeBalanced = function(node) {
+    if (!node) return 0;
+
+    let leftDepth = recurseIsTreeBalanced(node.left);
+    let rightDepth = recurseIsTreeBalanced(node.right);
+
+    if (leftDepth === false || rightDepth === false) return false;
+    if (Math.abs(leftDepth - rightDepth) >= 2) return false;
+
+    return Math.max(leftDepth, rightDepth) + 1;
+  }
+
+  return !!recurseIsTreeBalanced(node);
+}
