@@ -1,3 +1,23 @@
+class GraphNode {
+  constructor(value) {
+    this.value = value;
+    this.edges = [];
+  }
+
+  addNewEdge(node) {
+    this.edges.push(node);
+    return;
+  }
+}
+
+class BinaryNode {
+  constructor(value) {
+    this.value = value;
+    this.left = null;
+    this.right = null;
+  }
+}
+
 const findPathBtwnNodes = function(node1, node2) {
   let node1ConnectionsCache = new Map();
   let node2ConnectionsCache = new Map();
