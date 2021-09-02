@@ -18,6 +18,8 @@ class BinaryNode {
   }
 }
 
+///////////////////
+
 const findPathBtwnNodes = function(node1, node2) {
   let node1ConnectionsCache = new Map();
   let node2ConnectionsCache = new Map();
@@ -125,4 +127,22 @@ const isTreeBalanced = function(node) {
   }
 
   return !!recurseIsTreeBalanced(node);
+}
+
+const checkBinaryTreeIsBST = function(node) {
+
+  const recurseCheckBT = function(node, lowerBound, upperBound) {
+    if (!node) return;
+    if (node.value > upperBound || node.value < lowerBound) return false;
+
+    let leftCheck = recurseCheckBT(node.left, lowerBound, node.value);
+    if (leftCheck === false) return false;
+
+    let rightCheck = recurseCheckBT(node.right, node.value, upperBound);
+    if (rightCheck === false) return false;
+
+    return true;
+  }
+
+  return recurseCheckBT(node, -Infinity, Infinity);
 }
