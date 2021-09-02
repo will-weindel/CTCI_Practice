@@ -36,3 +36,16 @@ const findPathBtwnNodes = function(node1, node2) {
 
   return false;
 }
+
+const createBST = function(array) {
+  if (!array.length) return null;
+
+  let middleIndex = Math.floor(array.length / 2);
+  let middleValue = array[middleIndex];
+  let treeNode = new BSTNode(middleValue);
+
+  treeNode.left = createBST(array.slice(0, middleIndex));
+  treeNode.right = createBST(array.slice(middleIndex + 1));
+
+  return treeNode;
+}
