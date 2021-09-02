@@ -146,3 +146,20 @@ const checkBinaryTreeIsBST = function(node) {
 
   return recurseCheckBT(node, -Infinity, Infinity);
 }
+
+const checkBinaryTreeIsBST = function(node) {
+
+  const recurseCheckBT = function(node) {
+    if (!node) return null;
+
+    let leftValue = recurseCheckBT(node.left);
+    if (leftValue === false || (leftValue && leftValue > node.value)) return false;
+
+    let rightValue = recurseCheckBT(node.right);
+    if (rightValue === false || (rightValue && rightValue < node.value)) return false;
+
+    return rightValue ? rightValue : node.value;
+  }
+
+  return !!recurseCheckBT(node);
+}
