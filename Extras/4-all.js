@@ -49,3 +49,20 @@ const createBST = function(array) {
 
   return treeNode;
 }
+
+const createBST = function(array) {
+
+  const recurseCreateBST = function(low, high) {
+    if (low > high) return null;
+
+    let midIndex = Math.floor((low + high) / 2);
+    let treeNode = new BSTNode(array[midIndex]);
+
+    treeNode.left = recurseCreateBST(low, midIndex - 1);
+    treeNode.right = recurseCreateBST(midIndex + 1, high);
+
+    return treeNode;
+  }
+
+  return recurseCreateBST(0, array.length - 1);
+}
