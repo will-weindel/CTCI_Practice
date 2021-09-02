@@ -66,3 +66,26 @@ const createBST = function(array) {
 
   return recurseCreateBST(0, array.length - 1);
 }
+
+const createLinkedListOfLevels = function(node) {
+  let cacheOfLL = {};
+  let currentNodeQueue = [node];
+  let depth = 0;
+
+  while (currentNodeQueue.length) {
+    let childrenNodeQueue = [];
+    let list = new LinkedList();
+
+    for (let node of currentNodeQueue) {
+      node.left ? childrenNodeQueue.push(node.left) : null;
+      node.right ? childrenNodeQueue.push(node.right) : null;
+      list.addToTail(new ListNode(node));
+    }
+
+    cacheOfLL[depth] = list;
+    depth++;
+    currentNodeQueue = childrenNodeQueue;
+  }
+
+  return cacheOfLL;
+}
