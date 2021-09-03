@@ -163,3 +163,26 @@ const checkBinaryTreeIsBST = function(node) {
 
   return !!recurseCheckBT(node);
 }
+
+const getNodeSuccessor = function(node) {
+  let currentNode = node.right;
+
+  while (currentNode) {
+    if (currentNode.left) {
+      currentNode = currentNode.left;
+    } else {
+      return currentNode;
+    }
+  }
+
+  currentNode = node;
+
+  while (currentNode.parent) {
+    if (node.value < currentNode.parent) {
+      return currentNode.parent;
+    }
+    currentNode = currentNode.parent;
+  }
+
+  return 'Node has no sucessor.'
+}
