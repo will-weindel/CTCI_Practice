@@ -313,3 +313,68 @@ const createAllInputArrays = function (rootNode) {
   recurseCreateAIA(initialMoves)
   return arrayCache;
 }
+
+const areTreesIdentical = function(root1, root2) {
+  let biggerTree = determineBiggerTree(root1, root2); //* determine bigger tree
+
+  let smallerTree = biggerTree === root1 ? root2 : root1; //* determine smaller tree
+
+  let possibleStartingNodes = findIdenticalNode(biggerTree, smallerTree); //* find all starting nodes in bigger tree
+
+  while (possibleStartingNodes.length) { //* pop each node, check if subtree is ident
+    let currentStartingNode = possibleStartingNodes.pop();
+
+    if (verifyIdenticalTrees(currentStartingNode, smallerTree)) return true;
+  }
+
+  return false;
+}
+
+const determineBiggerTree = function(root1, root2) {
+
+  const recurseCountNodes = function(node) {
+    if (!node) return 0;
+
+    let leftCount = recurseCountNodes(node.left);
+    let rightCount = recurseCountNodes(node.right);
+
+    return leftCount + rightCount + 1;
+  }
+
+  let tree1Count = recurseCountNodes(root1);
+  let tree2Count = recurseCountNodes(root2);
+
+  return tree1Count > tree2Count ? root1 : root2;
+}
+
+const findIdenticalNode = function(biggerTreeRoot, smallerTreeRoot) {
+  let nodeCache = [];
+
+  const recurseFindIdentialNodes = function(node) {
+    if (!node) return;
+    if (node.value === smallerTreeRoot.value) nodeCache.push(node);
+
+    recurseFindIdentialNodes(node.left);
+    recurseFindIdentialNodes(node.right);
+
+    return null;
+  }
+
+  recurseFindIdentialNodes(biggerTreeRoot);
+
+  return nodeCache;
+}
+
+const verifyIdenticalTrees = function(node1, node2) {
+  if (!node1 && !node2) return;
+  if (!node1 && node2) return false;
+  if (!node2 && node1) return false;
+  if (node1.value !== node2.value) return false;
+
+  let leftCheck = verifyIdenticalTrees(node1.left, node2.left);
+  let rightCheck = verifyIdenticalTrees(node1.right, node2.right);
+
+  if (leftCheck === false || rightCheck === false) return false;
+
+  return true;
+}
