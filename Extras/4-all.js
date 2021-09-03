@@ -257,3 +257,26 @@ const findDependencies = function(projects, depends) {
 
   return projectOrder;
 }
+
+const findCommonAncestor = function(root, node1, node2) {
+
+  const recurseFindCA = function(node) {
+    if (!node) return 0;
+
+    let leftCheck = recurseFindCA(node.left);
+    let rightCheck = recurseFindCA(node.right);
+
+    if (typeof leftCheck === 'object') return leftCheck;
+    if (typeof rightCheck === 'object') return rightCheck;
+    if (leftCheck + rightCheck > 1) return node;
+
+    if (node === node1) return leftCheck + rightCheck + 1;
+    if (node === node2) return leftCheck + rightCheck + 1;
+
+    return leftCheck + rightCheck;
+  }
+
+  let commonAncestor = recurseFindCA(root);
+
+  return typeof commonAncestor === 'object' ? commonAncestor : 'No common ancestor.';
+}
