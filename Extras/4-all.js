@@ -280,3 +280,36 @@ const findCommonAncestor = function(root, node1, node2) {
 
   return typeof commonAncestor === 'object' ? commonAncestor : 'No common ancestor.';
 }
+
+const createAllInputArrays = function (rootNode) {
+  let arrayCache = [];
+  let currentArrayVariation = [rootNode.value];
+  let initialMoves = [];
+  rootNode.left ? initialMoves.push(rootNode.left) : null;
+  rootNode.right ? initialMoves.push(rootNode.right) : null;
+
+  const recurseCreateAIA = function(moves) {
+    if (!moves.length) {
+      arrayCache.push(currentArrayVariation.slice(0));
+      return null;
+    }
+
+    for (let i = 0; i < moves.length; i++) {
+      let currentMove = moves[i];
+      let nextMoves = [...moves.slice(0, i).concat(moves.slice(i + 1))];
+
+      currentMove.left ? nextMoves.push(currentMove.left) : null;
+      currentMove.right ? nextMoves.push(currentMove.right) : null;
+
+      currentArrayVariation.push(currentMove.value);
+      recurseCreateAIA(nextMoves);
+
+      currentArrayVariation.pop();
+    }
+
+    return null;
+  }
+
+  recurseCreateAIA(initialMoves)
+  return arrayCache;
+}
