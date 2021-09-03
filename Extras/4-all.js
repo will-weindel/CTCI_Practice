@@ -223,3 +223,37 @@ const removeProjectFromList = function(project, list) {
   }
   return;
 }
+
+const findDependencies = function(projects, depends) {
+  let projectAdjacencyList = {};
+  let seenProjectsCache = {};
+  let rootQueue = [];
+  let projectOrder = [];
+
+  for (let project of projects) {
+    projectAdjacencyList[project] = [[], false];
+  }
+
+  for (let dependecy of depends) {
+    projectAdjacencyList[dependecy[0]][0].push(dependecy[1]);
+    projectAdjacencyList[dependecy[1]][1] = true;
+  }
+
+  for (let project in projectAdjacencyList) {
+    if (!projectAdjacencyList[project][1]) {
+      rootQueue.push(project);
+    }
+  }
+
+  while (rootQueue.length) {
+    let nextProjectQueue = [];
+    for (let project of rootQueue) {
+      if (!seenProjectsCache[project]) projectOrder.push(project);
+      nextProjectQueue.push(...projectAdjacencyList[project][0]);
+      seenProjectsCache[project] = 1;
+    }
+    rootQueue = nextProjectQueue;
+  }
+
+  return projectOrder;
+}
