@@ -186,3 +186,40 @@ const getNodeSuccessor = function(node) {
 
   return 'Node has no sucessor.'
 }
+
+const findDependencies = function(projects, depends) {
+  let projectAdjacencyList = {};
+  let projectOrder = [];
+  let numberOfProjects = projects.length;
+
+  for (let project of projects) {
+    projectAdjacencyList[project] = [];
+  }
+
+  for (let depend of depends) {
+    projectAdjacencyList[depend[1]].push(depend[0]);
+  }
+
+  while (numberOfProjects) {
+    for (let project in projectAdjacencyList) {
+      if (projectAdjacencyList[project].length === 0) {
+        projectOrder.push(project);
+        delete projectAdjacencyList[project];
+        removeProjectFromList(project, projectAdjacencyList);
+      }
+    }
+    numberOfProjects--;
+  }
+
+  return projectOrder;
+}
+
+const removeProjectFromList = function(project, list) {
+  for (let remainingProject in list) {
+    let projectIndex = list[remainingProject].indexOf(project);
+    if (projectIndex > -1) {
+      list[remainingProject].splice(projectIndex, 1);
+    }
+  }
+  return;
+}
