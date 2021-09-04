@@ -18,6 +18,93 @@ class BinaryNode {
   }
 }
 
+class BST {
+  constructor() {
+    this.root = null;
+  }
+
+  insert(value) {
+    let newNode = new BinaryNode(value);
+
+    if (!this.root)  {
+      this.root = newNode;
+      return null;
+    }
+
+    let currentNode = this.root;
+
+    while (currentNode) {
+      if (value < currentNode.value) {
+        currentNode.leftChildrenQuantity++;
+        if (!currentNode.left) {
+          currentNode.left = newNode;
+          return null;
+        } else {
+          currentNode = currentNode.left;
+        }
+      } else {
+        currentNode.rightChildrenQuantity++;
+        if (!currentNode.right) {
+          currentNode.right = newNode;
+          return null;
+        } else {
+          currentNode = currentNode.right;
+        }
+      }
+    }
+
+    return null;
+  }
+
+  find(value) {
+    if (!this.root) return null;
+
+    let currentNode = this.root;
+
+    while (currentNode) {
+      if (currentNode.value === value) return currentNode;
+      else if (currentNode.value > value) {
+        if (!currentNode.left) return null;
+        else currentNode = currentNode.left;
+      }
+      else {
+        if (!currentNode.right) return null;
+        else currentNode = currentNode.right;
+      }
+    }
+
+    return null;
+  }
+
+  delete(value) {
+    if (!this.root) return null;
+    if (this.root.value === value) {
+      let temp = this.root;
+      this.root = this._rebalanceTree(this.root);
+      return temp;
+    }
+
+    let currentNode = this.root;
+
+    while (currentNode) {
+      if (currentNode.left && currentNode.left.value === value) {
+        let temp = currentNode.left;
+        currentNode.left = this._rebalanceTree(currentNode.left);
+        return temp;
+      }
+      else if (currentNode.right && currentNode.right.value === value) {
+        let temp = currentNode.right;
+        currentNode.right = this._rebalanceTree(currentNode.right);
+        return temp;
+      }
+      else if (currentNode.value > value) currentNode = currentNode.left;
+      else currentNode = currentNode.right;
+    }
+
+    return null;
+  }
+}
+
 ///////////////////
 
 const findPathBtwnNodes = function(node1, node2) {
