@@ -103,6 +103,60 @@ class BST {
 
     return null;
   }
+
+  _rebalanceTree(node) {
+    const sortedTreeValues = this._sortTreeValues(node, true);
+    let tempBST = new BST();
+
+    const recurseHelper = function(low, high) {
+      if (low > high) return;
+
+      const midIndex = Math.floor((high + low) / 2);
+
+      tempBST.insert(sortedTreeValues[midIndex]);
+      recurseHelper(low, midIndex - 1);
+      recurseHelper(midIndex + 1, high);
+
+      return null;
+    }
+
+    recurseHelper(0, sortedTreeValues.length - 1);
+    return tempBST.root;
+  }
+
+  _sortTreeValues(node, skipBool) {
+    const sortedValues = [];
+    const skipValue = node.value;
+
+    const recurseHelper = function(node) {
+      if (!node) return;
+
+      recurseHelper(node.left);
+      if (skipBool && node.value !== skipValue) sortedValues.push(node.value);
+      recurseHelper(node.right);
+
+      return null;
+    }
+
+    recurseHelper(node);
+    return sortedValues;
+  }
+
+  getRandomNode() {
+    let currentNode = this.root;
+
+    while (currentNode) {
+      let totalNodes = currentNode.leftChildrenQuantity + currentNode.rightChildrenQuantity + 1;
+      let randomNumber = Math.ceil(Math.random() * totalNodes);
+
+      if (randomNumber === currentNode.leftChildrenQuantity + 1) return currentNode;
+      if (randomNumber <= currentNode.leftChildrenQuantity) currentNode = currentNode.left;
+      else currentNode = currentNode.right;
+    }
+
+    return null;
+  }
+
 }
 
 ///////////////////
