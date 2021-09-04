@@ -106,8 +106,8 @@ class BST {
     return null;
   }
 
-  _rebalanceTree(node) {
-    const sortedTreeValues = this._sortTreeValues(node, true);
+  _rebalanceTree(obj) {
+    let sortedTreeValues = Array.isArray(obj) ? obj.sort() : this._sortTreeValues(obj, true);
     let tempBST = new BST();
 
     const recurseHelper = function(low, high) {
@@ -142,6 +142,11 @@ class BST {
 
     recurseHelper(node);
     return sortedValues;
+  }
+
+  createTreeFromArray(array) {
+    this.root = this._rebalanceTree(array);
+    return this;
   }
 
   getRandomNode() {
