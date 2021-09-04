@@ -14,7 +14,9 @@ class BinaryNode {
   constructor(value) {
     this.value = value;
     this.left = null;
+    this.leftChildrenQuantity = 0;
     this.right = null;
+    this.rightChildrenQuantity = 0;
   }
 }
 
