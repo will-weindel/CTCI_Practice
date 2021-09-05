@@ -526,3 +526,37 @@ const verifyIdenticalTrees = function(node1, node2) {
 
   return true;
 }
+
+const findSumPaths = function(node, inputValue) {
+  let pathCount = 0;
+  let valueCache = [];
+
+  const recurseHelper = function(node, sum, startingIndex) {
+    if (!node) return null;
+
+    let localSum = sum;
+    let localStartingIndex = startingIndex;
+
+    valueCache.push(node.value);
+    localSum += node.value;
+
+    if (localSum > inputValue) {
+      for (let i = valueCache.length - localStartingIndex; i > 0; i--) {
+        localSum -= valueCache[localStartingIndex];
+        localStartingIndex++;
+        if (localSum <= inputValue) break;
+      }
+    }
+
+    if (localSum === inputValue) pathCount++;
+
+    recurseHelper(node.left, localSum, localStartingIndex);
+    recurseHelper(node.right, localSum, localStartingIndex);
+
+    valueCache.pop();
+    return null;
+  }
+
+  recurseHelper(node, 0, 0);
+  return pathCount;
+}
