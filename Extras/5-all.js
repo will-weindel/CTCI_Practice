@@ -13,3 +13,32 @@ const stepUpStairs = function(n) {
   recurseSUS(n);
   return stairCache[n];
 }
+
+const findRobotPaths = function(matrix) {
+  const nextMovesQueue = [[0, 0]];
+
+  while (nextMovesQueue.length) {
+    let location = nextMovesQueue.shift();
+    let row = location[0];
+    let col = location[1];
+    let moveCount = matrix[row][col] === 'S' ? 1 : matrix[row][col] + 1;
+
+    let verticalCheck = checkNextMoveIsValid(row + 1, col, matrix, nextMovesQueue, moveCount);
+    let horizontalCheck = checkNextMoveIsValid(row, col + 1, matrix, nextMovesQueue, moveCount);
+
+    if (verticalCheck || horizontalCheck) return matrix;
+  }
+
+  return 'No path found.';
+}
+
+const checkNextMoveIsValid = function(row, col, matrix, queue, moveCount) {
+  if (matrix[row] === undefined) return null;
+  if (matrix[row][col] === undefined) return null;
+  if (matrix[row][col] === 'X') return null;
+  if (matrix[row][col] === 'F') return true;
+
+  matrix[row][col] = moveCount;
+  queue.push([row, col]);
+  return null;
+}
