@@ -42,3 +42,18 @@ const checkNextMoveIsValid = function(row, col, matrix, queue, moveCount) {
   queue.push([row, col]);
   return null;
 }
+
+const findMagicIndex = function(array) {
+  let low = 0;
+  let high = array.length - 1;
+
+  while (low <= high) {
+    let mid = Math.floor((high + low) / 2);
+
+    if (mid === array[mid]) return mid;
+    else if (mid > array[mid]) low = mid + 1;
+    else if (mid < array[mid]) high = mid - 1;
+  }
+
+  return 'No matching index/value pair.';
+}
