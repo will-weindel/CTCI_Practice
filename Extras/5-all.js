@@ -57,3 +57,27 @@ const findMagicIndex = function(array) {
 
   return 'No matching index/value pair.';
 }
+
+const findAllSubsets = function(string) {
+  const subsetCache = [''];
+
+  for (let letter of string) {
+    addLetterToSet(letter, subsetCache);
+  }
+
+  return subsetCache;
+}
+
+const addLetterToSet = function(letter, cache) {
+  let newSubsetCache = [];
+
+  for (let i = 0; i < cache.length; i++) {
+    for (let j = 0; j <= cache[i].length; j++) {
+      let newSubset = cache[i].substring(0, j) + letter + cache[i].substring(j);
+      newSubsetCache.push(newSubset);
+    }
+  }
+
+  cache.push(...newSubsetCache);
+  return null;
+}
