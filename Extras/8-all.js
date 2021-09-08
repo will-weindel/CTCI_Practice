@@ -134,3 +134,31 @@ const solveTowersOfHanoi = function(num) {
   recurseSTOH(num, stack1, stack2, stack3);
   return [stack1, stack2, stack3];
 }
+
+const findAllParensPermutations = function(num) {
+  const permutationCache = [];
+  const currentPermSet = [];
+
+  const recurseFindAllParensPerm = function(openParens, closedParens) {
+    if (openParens === 0 && closedParens === 0) {
+      return permutationCache.push(currentPermSet.join(''));
+    }
+
+    if (openParens > 0) {
+      currentPermSet.push('(');
+      recurseFindAllParensPerm(openParens - 1, closedParens);
+      currentPermSet.pop();
+    }
+
+    if (closedParens > openParens) {
+      currentPermSet.push(')');
+      recurseFindAllParensPerm(openParens, closedParens - 1);
+      currentPermSet.pop();
+    }
+
+    return null;
+  }
+
+  recurseFindAllParensPerm(num, num);
+  return permutationCache;
+}
