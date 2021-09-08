@@ -81,3 +81,30 @@ const addLetterToSet = function(letter, cache) {
   cache.push(...newSubsetCache);
   return null;
 }
+
+const noSymbolMultiply = function(num1, num2) {
+  let groups = 1;
+  let groupSize = num1;
+  let binaryCache = {};
+
+
+  while (groups < num2) {
+    binaryCache[groups] = groupSize;
+    groups <<= 1;
+    groupSize <<= 1;
+  }
+
+  groups >>= 1;
+  let groupCount = num2;
+  let sum = 0;
+
+  while(groupCount > 0) {
+    if (groups <= groupCount) {
+      sum += binaryCache[groups];
+      groupCount -= groups;
+    }
+    groups >>= 1;
+  }
+
+  return sum;
+}
