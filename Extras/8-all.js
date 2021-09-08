@@ -108,3 +108,29 @@ const noSymbolMultiply = function(num1, num2) {
 
   return sum;
 }
+
+const solveTowersOfHanoi = function(num) {
+  const stack1 = [];
+  const stack2 = [];
+  const stack3 = [];
+
+  for (let i = num; i >= 1; i--) {
+    stack1.push([i]);
+  }
+
+  const recurseSTOH = function(n, giver, buffer, target) {
+
+    if (n === 1) {
+      target.push(giver.pop());
+      return;
+    }
+
+    recurseSTOH(n - 1, giver, target, buffer);
+    target.push(giver.pop());
+    recurseSTOH(n - 1, buffer, giver, target);
+
+  }
+
+  recurseSTOH(num, stack1, stack2, stack3);
+  return [stack1, stack2, stack3];
+}
