@@ -181,3 +181,68 @@ const waysToMakeChange = function(num) {
 
   return changeCache[num];
 }
+
+const checkNQueens = function(num) {
+  const queenPositionCache = {}; // create initial board cache
+  let solutionCount = 0;
+
+  for (let i = 0; i < num; i++) {  // add all rows explicit (set to null)
+    queenPositionCache[i] = null;
+  }
+
+  const recurseNQ = function(row) { // recurse each row
+
+    for (let col = 0; col < num; col++) { // loop through each col, check mates
+      queenPositionCache[row] = col;
+
+      if (checkVerticalMates(queenPositionCache) && checkDiagonalMates(queenPositionCache, num)) {
+        if (row === num - 1) {
+          solutionCount++;
+          //console.log(queenPositionCache);
+        } else {
+          recurseNQ(row + 1);
+        }
+      }
+    }
+    //debugger;
+    queenPositionCache[row] = null;
+    return null;
+  }
+
+  recurseNQ(0);
+  return solutionCount;
+}
+
+const checkVerticalMates = function(positionCache) {
+  let currentCols = {};
+
+  for (let row in positionCache) {
+    if (positionCache[row] !== null && currentCols[positionCache[row]]){
+      return false;
+    } else {
+      currentCols[positionCache[row]] = true;
+    }
+  }
+  return true;
+}
+
+const checkDiagonalMates = function(positionCache, num) {
+
+  for (let row in positionCache) {
+    let nextDiagonalRow = Number(row);
+    for (let col = positionCache[row]; col < num; col++) {
+      nextDiagonalRow++;
+      if (positionCache[nextDiagonalRow] === col + 1) {
+        return false;
+      }
+    }
+    nextDiagonalRow = Number(row);
+    for (let col = positionCache[row]; col >= 0; col--) {
+      nextDiagonalRow++;
+      if (positionCache[nextDiagonalRow] === col - 1) {
+        return false;
+      }
+    }
+  }
+  return true;
+}
