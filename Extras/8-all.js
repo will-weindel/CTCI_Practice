@@ -162,3 +162,22 @@ const findAllParensPermutations = function(num) {
   recurseFindAllParensPerm(num, num);
   return permutationCache;
 }
+
+const waysToMakeChange = function(num) {
+  let coins = [1, 5, 10, 25];
+  let changeCache = { 0:1 };
+
+  for (let i = 1; i <= num; i++) {
+    changeCache[i] = 0;
+  }
+
+  for (let coin of coins) {
+    for (let i = 1; i <= num; i++) {
+      if (coin <= i) {
+        changeCache[i] += changeCache[i - coin];
+      }
+    }
+  }
+
+  return changeCache[num];
+}
