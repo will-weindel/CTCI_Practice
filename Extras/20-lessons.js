@@ -5,3 +5,7 @@
 // Many (top rated) leetcode solutions are very good, short and appear optimal.
 // I have a plan for the next few weeks - mainly math, and the next few relavent chapters of CTCI
 // I'll need to think of a way to continue to add commits.
+// I am also making the master list of all things to know before interviews, maybe I can spend some additional
+// time on the master list.
+
+//Goals are 1) Problem Solving, 2) Math, 3) Javascript/OOD mastery, 4) good interview skills
