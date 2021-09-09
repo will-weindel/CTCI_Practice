@@ -246,3 +246,42 @@ const checkDiagonalMates = function(positionCache, num) {
   }
   return true;
 }
+
+const stackBoxesForMaxHeight = function(boxMatrix) {
+  let boxList = {};
+  let maxHeight = 0;
+
+  for (let i = 0; i < boxMatrix.length; i++) {
+    boxList[i] = [];
+    for (let j = 0; j < boxMatrix.length; j++) {
+      if (i !== j) {
+        if (boxMatrix[i][0] >= boxMatrix[j][0] &&
+            boxMatrix[i][1] >= boxMatrix[j][1] &&
+            boxMatrix[i][2] >= boxMatrix[j][2]) {
+          boxList[i].push(j);
+        }
+      }
+    }
+  }
+
+  const recurseSBFMH = function(boxIndex, currentHeight) {
+    if (boxList[boxIndex].length === 0) {
+      if (currentHeight > maxHeight) maxHeight = currentHeight;
+      return null;
+    }
+
+    for (let box of boxList[boxIndex]) {
+      currentHeight += boxMatrix[box][0];
+      recurseSBFMH(box, currentHeight);
+      currentHeight -= boxMatrix[box][0];
+    }
+    return null;
+  }
+
+  for (let i = 0; i < boxMatrix.length; i++) {
+    let currentHeight = boxMatrix[i][0];
+    recurseSBFMH(i, currentHeight);
+  }
+
+  return maxHeight;
+}
