@@ -8,4 +8,4 @@
 // I am also making the master list of all things to know before interviews, maybe I can spend some additional
 // time on the master list.
 
-//Goals are 1) Problem Solving, 2) Math, 3) Javascript/OOD mastery, 4) good interview skills
+// Goals are 1) Problem Solving, 2) Math, 3) Javascript/OOD mastery, 4) good interview skills
