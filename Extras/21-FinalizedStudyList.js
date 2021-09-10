@@ -15,3 +15,25 @@
 // Graph
 // Bloom Filter
 // LRU Cache (Link)
+
+// ALGORITHMS
+// Iterative (general)
+// Recursive (general)
+// Backtracking
+// BFS (iterative)
+// DFS (recursive)
+// DFS (iterative)
+// Tree Traversal & Search (Pre-Order | In-Order | Post-Order)
+// Binary Search
+// Insertion sort
+// Merge sort
+// Quick sort
+// Heap Sort
+// Radix Sort
+// Topological Sort
+// Greedy Algos
+// Divide and Conquer Algos
+// Dynamic Programming (Memoizing | Top-Down | Bottom-Up)
+// Djikstras
+// A*
+// Bellman-Ford
