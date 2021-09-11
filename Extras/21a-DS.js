@@ -139,3 +139,56 @@ class nAryTree {
     delete(){}
     find(){}
 }
+
+class LRUNode {
+  constructor(key, value) {
+    this.key = key;
+    this.value = value;
+    this.next = null;
+    this.previous = null;
+  }
+}
+
+class DoubleLL {
+  constructor(){
+    this.head = null;
+    this.tail = null;
+  }
+
+  addToHead(node) {
+    if (!this.head) {
+      this.head = node;
+      this.tail = node;
+      return null;
+    }
+
+    let temp = this.head;
+    this.head = node;
+    this.head.next = temp;
+    temp.previous = this.head;
+
+    return null;
+  }
+
+  moveToHead(node) {
+    if (node === this.head) return null;
+    if (node === this.tail) this.removeFromTail();
+
+    let previousNode = node.previous;
+    let nextNode = node.next;
+
+    previousNode.next = nextNode;
+    if (nextNode) nextNode.previous = previousNode;
+
+    this.addToHead(node);
+    node.previous = null;
+    return null;
+  }
+
+  removeFromTail() {
+    let temp = this.tail;
+    this.tail = this.tail.previous;
+    this.tail.next = null;
+    return temp;
+  }
+}
