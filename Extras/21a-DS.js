@@ -202,9 +202,11 @@ class LRUCache {
   }
 
   put(key, value) {
-    if (this.indexLookupTable[key]) {
-      this.indexLookupTable[key].value = value;
-      this.keyValueList.moveToHead(this.indexLookupTable[key]);
+    let validLookUp = this.indexLookupTable[key];
+
+    if (validLookUp) {
+      validLookUp.value = value;
+      this.keyValueList.moveToHead(validLookUp);
       return null;
     }
 
@@ -222,7 +224,13 @@ class LRUCache {
   }
 
   get(key) {
-    this.keyValueList.moveToHead(this.indexLookupTable[key]);
-    return this.indexLookupTable[key].value;
+    let validLookUp = this.indexLookupTable[key];
+
+    if (validLookUp) {
+      this.keyValueList.moveToHead(validLookUp);
+      return validLookUp.value;
+    }
+
+    return 'Item not found.';
   }
 }
