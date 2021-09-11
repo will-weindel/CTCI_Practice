@@ -192,3 +192,37 @@ class DoubleLL {
     return temp;
   }
 }
+
+class LRUCache {
+  constructor(capacity) {
+    this.indexLookupTable = {};
+    this.keyValueList = new DoubleLL();
+    this.capacity = capacity;
+    this.nodeCount = 0;
+  }
+
+  put(key, value) {
+    if (this.indexLookupTable[key]) {
+      this.indexLookupTable[key].value = value;
+      this.keyValueList.moveToHead(this.indexLookupTable[key]);
+      return null;
+    }
+
+    if (this.nodeCount === this.capacity) {
+      let temp = this.keyValueList.removeFromTail();
+      delete this.indexLookupTable[temp.key];
+      this.nodeCount--;
+    }
+
+    let newNode = new LRUNode(key, value);
+    this.indexLookupTable[key] = newNode;
+    this.keyValueList.addToHead(newNode);
+    this.nodeCount++;
+    return null;
+  }
+
+  get(key) {
+    this.keyValueList.moveToHead(this.indexLookupTable[key]);
+    return this.indexLookupTable[key].value;
+  }
+}
