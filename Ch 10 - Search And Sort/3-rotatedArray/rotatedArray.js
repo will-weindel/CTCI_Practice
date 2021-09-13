@@ -36,3 +36,5 @@ const findIndexInRotatedArray = function(array, value) {
 
   return 'No index found.';
 }
+
+module.exports = findIndexInRotatedArray;
