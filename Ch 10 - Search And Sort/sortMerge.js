@@ -35,3 +35,5 @@ const mergeTwoArrays = function(arr1, arr2) {
 
   return mergedArray;
 }
+
+module.exports = mergeTwoArrays;
