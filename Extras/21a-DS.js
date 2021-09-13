@@ -1,7 +1,7 @@
 // DATA STRUCTURES
 // Array (1d, 2d)
 // HashTable (Standard, Map, Set)
-// Node (Binary, Graph, LinkedList)
+// Node (Binary, Graph, LinkedList, LRU)
 // Stack (LIFO)
 // Queue (FIFO)
 // Heap (Min | Max | Priority)
@@ -26,7 +26,7 @@
 new Map(); // set | has | get
 new Set(); // add | has
 
-class Hash {
+class HashTable {
     constructor() {
         this.data = [];
     }
@@ -38,7 +38,7 @@ class Hash {
 }
 
 
-// Node (Binary, Graph, LinkedList)
+// Node (Binary, Graph, LinkedList, LRU)
 
 class BinaryNode {
     constructor(value) {
@@ -61,6 +61,15 @@ class LLNode {
         this.value = value;
         this.next = null;
     }
+}
+
+class LRUNode {
+  constructor(key, value) {
+    this.key = key;
+    this.value = value;
+    this.next = null;
+    this.previous = null;
+  }
 }
 
 // Stack - LIFO
@@ -115,40 +124,6 @@ class LL {
     search(){}
 }
 
-// Binary Tree (BST)
-
-class BinaryTree {
-    consructor() {
-        this.head = null;
-    }
-    insert(){}
-    delete(){}
-    find(){}
-    preOrderTraverse(){}
-    inOrderTraverse(){}
-    postOrderTraverse(){}
-}
-
-// n-ary Tree
-
-class nAryTree {
-    constructor(){
-        this.head = null;
-    }
-    insert(){}
-    delete(){}
-    find(){}
-}
-
-class LRUNode {
-  constructor(key, value) {
-    this.key = key;
-    this.value = value;
-    this.next = null;
-    this.previous = null;
-  }
-}
-
 class DoubleLL {
   constructor(){
     this.head = null;
@@ -192,6 +167,34 @@ class DoubleLL {
     return temp;
   }
 }
+
+// Binary Tree (BST)
+
+class BinaryTree {
+    consructor() {
+        this.head = null;
+    }
+    insert(){}
+    delete(){}
+    find(){}
+    preOrderTraverse(){}
+    inOrderTraverse(){}
+    postOrderTraverse(){}
+}
+
+// n-ary Tree
+
+class nAryTree {
+    constructor(){
+        this.head = null;
+    }
+    insert(){}
+    delete(){}
+    find(){}
+}
+
+
+// LRU Cache
 
 class LRUCache {
   constructor(capacity) {
