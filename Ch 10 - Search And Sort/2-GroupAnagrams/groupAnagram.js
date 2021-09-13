@@ -29,3 +29,5 @@ const groupAllAnagrams = function(arr) {
 
   return groupedAnagrams;
 }
+
+module.exports = groupAllAnagrams;
