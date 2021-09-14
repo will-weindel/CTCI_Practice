@@ -43,3 +43,5 @@ const findIndexInModifiedArray = function(array, value) {
 
   return 'No index found.';
 }
+
+module.exports = findIndexInModifiedArray;
