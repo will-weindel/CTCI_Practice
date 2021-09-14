@@ -1,7 +1,8 @@
 // DATA STRUCTURES
 // Array (1d, 2d)
-// HashTable (Standard, Map, Set)
-// Node (Binary, Graph, LinkedList)
+// Objects (Standard, Map, Set)
+// HashTable
+// Node (Binary, Graph, LinkedList, LRU)
 // Stack (LIFO)
 // Queue (FIFO)
 // Heap (Min | Max | Priority)
