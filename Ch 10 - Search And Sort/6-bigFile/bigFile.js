@@ -20,3 +20,62 @@ while (largeFile.length < 500) {
     numberCache[randomNum] = true;
   }
 }
+
+const sortLargeFile = function(file) {
+  let filePointer = 0;
+
+  while (filePointer < file.length) {
+    let dataReadToMemory = addDataToMemory(file, filePointer);
+    externalFile.push(mergeSort(dataReadToMemory));
+    filePointer += dataReadToMemory.length;
+  }
+
+  let chunkHolder = [];
+  externalFile.forEach(element => chunkHolder.push([0, []]));
+
+ while (sortedFile.length < 500) {
+   for (let i = 0; i < chunkHolder.length; i++) {
+     if (chunkHolder[i][1].length === 0) {
+       chunkHolder[i][1].push(externalFile[i][chunkHolder[i][0]]);
+       chunkHolder[i][0]++;
+     }
+   }
+
+   let smallestValue = null;
+
+   for (let i = 0; i < chunkHolder.length; i++) {
+     if (!smallestValue || chunkHolder[i][1][0] < smallestValue) {
+       smallestValue = chunkHolder[i][1][0];
+     }
+   }
+
+   chunkHolder.forEach(chunk => {
+     if (chunk[1][0] === smallestValue) {
+       chunk[1].shift();
+     }
+   })
+
+   sortedFile.push(smallestValue);
+ }
+
+ return sortedFile;
+}
+
+
+const addDataToMemory = function(file, startingIndex) {
+  let chunkOfData = [];
+
+  for (let i = 1; i <= 10; i++) {
+    if (file[startingIndex] !== undefined) {
+      chunkOfData.push(file[startingIndex]);
+      startingIndex++;
+    }
+  }
+
+  return chunkOfData;
+}
+
+
+const mergeSort = function(data) {
+  return data.sort((a, b) => a - b);
+}
