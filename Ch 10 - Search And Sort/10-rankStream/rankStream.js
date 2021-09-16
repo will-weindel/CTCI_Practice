@@ -3,3 +3,6 @@
 // C - Time O Log N | Space Linear
 // E - N/A
 
+// add stream of numbers to a BST
+// on lookup, add all left values plus node if node is less than lookup
+// if node is eqaul to look up, add all left count
