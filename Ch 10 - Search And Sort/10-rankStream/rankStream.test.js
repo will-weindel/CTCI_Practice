@@ -12,5 +12,7 @@ intRanker.addInteger(13);
 intRanker.addInteger(3);
 
 test('Interger Ranker', () => {
-  console.log(intRanker);
+  expect(intRanker.getIntRank(1)).toBe(0);
+  expect(intRanker.getIntRank(3)).toBe(1);
+  expect(intRanker.getIntRank(4)).toBe(3);
 })

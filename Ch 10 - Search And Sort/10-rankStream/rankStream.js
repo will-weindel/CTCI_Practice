@@ -73,7 +73,6 @@ class IntegerRanker {
         break;
       }
     }
-
     return foundInt ? nodeCount : 'Integer not found.';
   }
 }
