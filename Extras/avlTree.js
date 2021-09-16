@@ -69,4 +69,80 @@ class AVLTree {
     }
   }
 
+
+  checkBalance(currentNode) {
+    while (currentNode) {
+      if (Math.abs(currentNode.leftCount - currentNode.rightCount) > 1) {
+        return currentNode;
+      } else {
+        currentNode = currentNode.parent;
+      }
+    }
+    return null;
+  }
+
+  getNewNodeBalances(node) {
+    if (!node) return 0;
+
+    let leftDepth = this.getNewNodeBalances(node.left);
+    let rightDepth = this.getNewNodeBalances(node.right);
+
+    node.leftCount = leftDepth;
+    node.rightCount = rightDepth;
+
+    return
+
+  }
+
+
+  determineRotationMethod(unbalancedNode, addedNode) {
+    let childNode = null;
+
+    if (unbalancedNode.leftCount > unbalancedNode.rightCount) {
+      childNode = unbalancedNode.left;
+    } else {
+      childNode = unbalancedNode.right;
+    }
+
+    const recurseFindAddedNode = function(node) {
+      if (!node) return null;
+      if (node.left === addedNode) return true;
+      if (node.right === addedNode) return true;
+
+      let leftCheck = recurseFindAddedNode(node.left);
+      if (leftCheck) return leftCheck;
+
+      let rightCheck = recurseFindAddedNode(node.right);
+      if (rightCheck) return rightCheck;
+
+      return null;
+    }
+
+    let checkLeftSubTree = recurseFindAddedNode(childNode.left);
+
+    if (childNode = unbalancedNode.left && checkLeftSubTree) return 1;
+    if (childNode = unbalancedNode.left && !checkLeftSubTree) return 2;
+    if (childNode = unbalancedNode.right && !checkLeftSubTree) return 3;
+    if (childNode = unbalancedNode.right && checkLeftSubTree) return 4;
+  }
+
+  rotateRR(unbalancedNode) {
+
+    if (unbalancedNode === this.rootNode) {
+      this.rootNode = unbalancedNode.right;
+    }
+
+    let newParentNode = unbalancedNode.right;
+    let tempChildNode = unbalancedNode.right.left;
+
+    newParentNode.left = unbalancedNode;
+    newParentNode.parent = unbalancedNode.parent;
+    unbalancedNode.right = tempChildNode;
+    unbalancedNode.parent = newParentNode;
+
+    this.getNewNodeBalances(newParentNode);
+
+    return null;
+  }
+
 }
