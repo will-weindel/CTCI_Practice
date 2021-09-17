@@ -30,3 +30,5 @@ const transformToPeaksAndValleys = function(array) {
   }
    return array;
 }
+
+module.exports = transformToPeaksAndValleys;
