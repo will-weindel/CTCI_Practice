@@ -78,7 +78,6 @@ class AVLTree {
     }
   }
 
-
   adjustNodeBalances(node) {
     let parentNode = node.parent;
     let childNode = node;
@@ -96,7 +95,6 @@ class AVLTree {
     return null;
   }
 
-
   checkBalance(currentNode) {
     while (currentNode) {
       if (Math.abs(currentNode.leftDepth - currentNode.rightDepth) > 1) {
@@ -110,10 +108,8 @@ class AVLTree {
 
   getNewNodeBalances(node) {
     if (!node) return 0;
-
     node.leftDepth = this.getNewNodeBalances(node.left);
     node.rightDepth = this.getNewNodeBalances(node.right);
-
     return Math.max(node.leftDepth, node.rightDepth) + 1;
   }
 
