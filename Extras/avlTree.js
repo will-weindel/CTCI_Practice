@@ -1,3 +1,10 @@
+// General AVL Operation:
+// 1. add new node to tree via BS
+// 2. from new node, move up tree and adjust left/right balances
+// 3. from new node, look for imbalances
+// 4. if imbalance, perform either LL, RR, RL or LR operation on respective nodes
+// 5. from root node, regenerate left/right depths
+
 class AVLNode {
   constructor(value){
     this.value = value;
