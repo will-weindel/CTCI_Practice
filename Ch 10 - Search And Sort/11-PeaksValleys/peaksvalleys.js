@@ -18,12 +18,17 @@ const transformToPeaksAndValleys = function(array) {
   let transformVector = array[0] <= array[1] ? true : false;
 
   for (let i = 0; i < array.length - 1; i++) {
+    if (array[i] === array[i + 1]) continue;
     if ((transformVector && array[i] <= array[i + 1]) || (!transformVector && array[i] >= array[i + 1])) {
       transformVector = !transformVector;
     }
     else {
-      let temp = array[i];
-      array[i] = array[i + 1];
+      let replaceIndex = i;
+      while (i >= 1 && array[replaceIndex - 1] === array[i]) {
+        replaceIndex--;
+      }
+      let temp = array[replaceIndex];
+      array[replaceIndex] = array[i + 1];
       array[i + 1] = temp;
       transformVector = !transformVector;
     }
