@@ -7,4 +7,6 @@
 // C - Time O(n) | Space O(1) | number range | length range | type range
 // E - none number types
 
-
+// there are two ways we can approach a solution (one violates a contraint on space)
+// we can loop through the array, add each item to memory, and then if item exists, remove from mem
+// we can also use ^= to XOR a number to some accumulator, and the net result will be the only remaining num
