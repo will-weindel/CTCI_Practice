@@ -23,3 +23,13 @@ const findUniqueValueExtraMem = function(array) {
    return key;
   }
 }
+
+const findUniqueValueConstMem = function(array) {
+  let accum = 0;
+
+  for (let num of array) {
+    accum ^= num;
+  }
+
+  return accum;
+}
