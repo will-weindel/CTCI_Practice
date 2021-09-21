@@ -23,7 +23,14 @@ Output: N = 10001001100
 
 
 const insertion = (N, M, i, j) => {
-  //insert bits here
+
+  let mask = 2 ** (N.toString(2).length) - 1;
+  let subMask = (2 ** (M.toString(2).length) - 1) << i;
+  let shifted = M << i;
+
+  mask = (mask ^ subMask) & N;
+  return mask | shifted;
+
 };
 
 module.exports = insertion;
