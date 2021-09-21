@@ -22,7 +22,7 @@ Output: N = 10001001100
 // OR the smaller number and the cleared out bigger number
 
 
-const insertion = (N, M, i, j) => {
+const insertion = (M, N, i, j) => {
 
   let mask = 2 ** (N.toString(2).length) - 1;
   let subMask = (2 ** (M.toString(2).length) - 1) << i;
