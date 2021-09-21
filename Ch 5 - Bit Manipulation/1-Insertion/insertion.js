@@ -14,6 +14,12 @@ Output: N = 10001001100
 // C - Time | Space
 // E - can't fit in range?
 
+// create a 1's mask (all 1's) the length of the bigger value
+// create a 1's mask the length of the smaller value, then shift i places
+// strictly OR (XOR) the mask and subMask (will return ex. 111110001111)
+// AND the current mask with the input number (will clear the range)
+// shift the smaller number i places
+// OR the smaller number and the cleared out bigger number
 
 
 const insertion = (N, M, i, j) => {
