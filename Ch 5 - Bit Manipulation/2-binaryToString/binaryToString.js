@@ -14,7 +14,24 @@ characters, print "ERROR:'
 // else add 0
 
 var binaryToString = function (number) {
-  //bin of strings
+  let bitCache = ['0.'];
+  let exponent = -1;
+
+  while (bitCache.length < 32 && num > 0) {
+    let binaryValue = 2 ** exponent;
+
+    if (binaryValue <= num) {
+      bitCache.push(1);
+      num -= binaryValue;
+    }
+    else {
+      bitCache.push(0);
+    }
+
+    exponent--;
+  }
+
+  return (num > 0) ? 'ERROR' : bitCache.join('');
 };
 
 module.exports = binaryToString;
