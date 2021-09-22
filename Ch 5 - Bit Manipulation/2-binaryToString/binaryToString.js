@@ -13,7 +13,7 @@ characters, print "ERROR:'
 // if binary val is smaller than num, subtract binary val, add one to a cache
 // else add 0
 
-var binaryToString = function (number) {
+var binaryToString = function (num) {
   let bitCache = ['0.'];
   let exponent = -1;
 
