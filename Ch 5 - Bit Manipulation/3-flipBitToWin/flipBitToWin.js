@@ -11,6 +11,11 @@ Output: 8
 // C - Time O(n) | Space O(1)
 // E - only 1's
 
+// check current num against 1 (i.e. num & 1)
+// if yes, increment second group, shift num right by 1
+// if no, update pointers
+// return maxCount or length of toString(2)
+
 var flipBitToWin = function (number) {
 
 };
