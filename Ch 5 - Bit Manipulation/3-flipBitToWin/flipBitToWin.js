@@ -16,8 +16,28 @@ Output: 8
 // if no, update pointers
 // return maxCount or length of toString(2)
 
-var flipBitToWin = function (number) {
+var flipBitToWin = function (num) {
+  if (num === 0) return 1;
 
+  let firstGroupCount = 0;
+  let secondGroupCount = 0;
+  let maxCount = 0;
+
+  while (num >= 1) {
+    if (num & 1) {
+      secondGroupCount++;
+      num >>= 1;
+    }
+    else {
+      let totalCount = firstGroupCount + secondGroupCount + 1;
+      maxCount = totalCount > maxCount ? totalCount : maxCount;
+      firstGroupCount = secondGroupCount;
+      secondGroupCount = 0;
+      num >>= 1;
+    }
+  }
+
+  return maxCount > 0 ? maxCount : secondGroupCount;
 };
 
 module.exports = flipBitToWin;
