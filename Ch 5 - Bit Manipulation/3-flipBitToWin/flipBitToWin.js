@@ -5,8 +5,14 @@ EXAMPLE
 Input: 1775 (or: 11011101111)
 Output: 8
 */
+
+// I - a number
+// O - longest series of 1's if a bridge is included
+// C - Time O(n) | Space O(1)
+// E - only 1's
+
 var flipBitToWin = function (number) {
-  //hope you win!
+
 };
 
 module.exports = flipBitToWin;
