@@ -6,6 +6,12 @@ and the width. Implement a function that draws a horizontal line from ( xl, y) t
 The method signature should look something like:
 drawline(byte[] screen, int width, int xl, int x2, int y)
 */
+
+// I - an array, width, x1, x2, and y
+// O - the array with a 'line'
+// C - Time linear | Space linear
+// E - n/a
+
 var drawLine = function (screen, width, x1, x2, y) {
   //Still better than I can draw irl
 };
