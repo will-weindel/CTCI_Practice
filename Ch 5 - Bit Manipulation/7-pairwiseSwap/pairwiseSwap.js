@@ -7,6 +7,11 @@ possible (e.g., bit 0 and bit 1 are swapped, bit 2 and bit 3 are swapped, and so
 // O - a new number with swapped inary digits
 // C - Linear | Constant
 // E - N/A
+
+// create two masks at first and second bit
+// if input & mask1 is same as input & mask2 => increment masks by 2
+// else, ^= input with masks (this will flip bits)
+
 var pairwiseSwap = function (num) {
   let mask1 = 1;
   let mask2 = 2;
