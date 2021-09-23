@@ -8,4 +8,8 @@ have the same number of 1 bits in their binary representation.
 // C - N/A
 // E - N/A
 
+// for the next greatest number, flip a 0 to 1 (this adds) and a 1 to 0 (this subtracts)
+// for the smaller number, do the same as above (only the goal it flip a larger 1 and smaller 0)
+// sometimes the 1s need to be synched up
+
 module.exports = nextNumber;
