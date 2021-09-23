@@ -13,11 +13,14 @@ possible (e.g., bit 0 and bit 1 are swapped, bit 2 and bit 3 are swapped, and so
 // else, ^= input with masks (this will flip bits)
 
 var pairwiseSwap = function (num) {
+  if (num === 0) return 1;
+  if (num === 1) return 2;
+
   let mask1 = 1;
   let mask2 = 2;
   let numCopy = num;
 
-  while (mask1 < numCopy) {
+  while (mask1 <= numCopy) {
     if (((num & mask1) && !(num & mask2)) || (!(num & mask1) && (num & mask2))) {
       num ^= mask1;
       num ^= mask2;
