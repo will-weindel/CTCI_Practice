@@ -17,7 +17,18 @@ Output: 2
 
 
 var conversion = function (number1, number2) {
-  //convert
+  let flipCount = 0;
+  let largerValue = num1 >= num2 ? num1 : num2;
+  let smallerValue = num1 >= num2 ? num2 : num1;
+
+  while (largerValue > 0) {
+    if ((largerValue & 1) && !(smallerValue & 1)) flipCount++;
+    if (!(largerValue & 1) && (smallerValue & 1)) flipCount++;
+    largerValue >>= 1;
+    smallerValue >>= 1;
+  }
+
+  return flipCount;
 };
 
 module.exports = conversion;
