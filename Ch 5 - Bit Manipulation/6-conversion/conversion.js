@@ -11,6 +11,10 @@ Output: 2
 // C - Time O(n) where n = binary length of larger input | Space O(1)
 // E - non ints
 
+// check each int against 1 (i.e. num1 & 1 | num2 & 1)
+// if they are the same, shift both right by one
+// if they are different, increment counter and then shift both right by one
+
 
 var conversion = function (number1, number2) {
   //convert
