@@ -32,4 +32,24 @@ var pairwiseSwap = function (num) {
   return num;
 };
 
+const flipOddEvenBits = function(num) {
+  let oddBit = 1;
+  let evenBit = 1 << 1;
+  let mask = 0;
+
+  while (oddBit < num) {
+    let firstValue = num & oddBit;
+    let secondValue = num & evenBit;
+
+    firstValue <<= 1;
+    secondValue >>= 1;
+
+    mask += firstValue + secondValue;
+    oddBit <<= 2;
+    evenBit <<= 2;
+  }
+
+  return mask;
+}
+
 module.exports = pairwiseSwap;
