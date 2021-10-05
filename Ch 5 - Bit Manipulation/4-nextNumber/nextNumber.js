@@ -82,4 +82,54 @@ const getSmallerValue = function(num) {
   return numCopy;
 }
 
+const findNextLargestAndSmallest = function(num) {
+  let numberOfOneBits = 0;
+  let numberOfZeroBits = 0;
+  let mask = 1;
+  let nextLargetNum = 0;
+  let nextSmallestNum = 0;
+
+  while (mask < num) {
+    if (mask & num) {
+      numberOfOneBits++;
+    } else if (numberOfOneBits > 0) {
+      nextLargetNum = num | mask;
+      mask >>= 1;
+      nextLargetNum ^= mask;
+      break;
+    }
+    mask <<= 1;
+  }
+
+  if (!nextLargetNum) {
+    let subMask = 1 << numberOfOneBits - 1;
+    subMask -= 1;
+    nextLargetNum = mask | subMask;
+  }
+
+  mask = 1;
+
+  while (mask < num) {
+    if (!(mask & num)) {
+      numberOfZeroBits++;
+    } else if (numberOfZeroBits > 0 && (num & (mask << 1))) {
+      nextSmallestNum = num ^ mask;
+      mask >>= 1;
+      nextSmallestNum |= mask;
+      break;
+    }
+    mask <<= 1;
+  }
+
+  if (!nextSmallestNum) {
+    let subMask = 1 << numberOfOneBits;
+    subMask -= 1;
+    subMask <<= Math.max(numberOfZeroBits - 1, 0);
+    mask >>= 2;
+    nextSmallestNum = mask | subMask;
+  }
+
+  return [nextLargetNum.toString(2), nextSmallestNum.toString(2)];
+}
+
 module.exports = nextNumber;
