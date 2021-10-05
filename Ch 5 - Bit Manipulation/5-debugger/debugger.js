@@ -9,6 +9,8 @@ Explain what the following code does: ( ( n & ( n-1)) == 0).
 // 8 = 1000 | 7 = 111  8 & 7 = 0;
 // subtracting 1 in binary basically flips all rightmost zeros to 1, then flips the first 1 to 0
 
+// basically this code determines if n is a power of two
+
 var mysteriousFunction = function (n) {
   return (n & (n - 1)) === 0;
 };
