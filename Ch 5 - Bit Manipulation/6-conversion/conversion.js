@@ -31,4 +31,17 @@ var conversion = function (number1, number2) {
   return flipCount;
 };
 
+const getNumberOfFlips = function(num1, num2) {
+  let numberOfChanges = Math.abs(num1.toString(2).length - num2.toString(2).length);
+  let mask = 1;
+
+  while (mask < num2) {
+    let currentBitValue = num2 & mask;
+    if ((num1 & mask) !== currentBitValue) numberOfChanges++;
+    mask <<= 1;
+  }
+
+  return numberOfChanges;
+}
+
 module.exports = conversion;
