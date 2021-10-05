@@ -33,8 +33,6 @@ const insertion = (M, N, i, j) => {
 
 };
 
-module.exports = insertion;
-
 // The below is an alternative approach to solve the problem. Insted of creating all 1's the
 // the length on the bigger value, create all ones the length of the index distance. OR the larger
 // number with the mask, then stricly OR (this will make the values all 1's, then all 0's)
@@ -53,3 +51,8 @@ const insertBinaryNumber = function(num1, num2, i, j) {
 
   return num1;
 }
+
+module.exports = {
+  insertion,
+  insertBinaryNumber
+};
