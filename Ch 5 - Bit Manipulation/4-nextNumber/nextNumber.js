@@ -82,6 +82,10 @@ const getSmallerValue = function(num) {
   return numCopy;
 }
 
+// below is an alternative solution to nextNumber.js
+// it is less modular
+// finding the larger and smaller number use similar logic
+
 const findNextLargestAndSmallest = function(num) {
   let numberOfOneBits = 0;
   let numberOfZeroBits = 0;
