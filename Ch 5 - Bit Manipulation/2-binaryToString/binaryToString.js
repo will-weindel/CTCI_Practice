@@ -34,6 +34,9 @@ var binaryToString = function (num) {
   return (num > 0) ? 'ERROR' : bitCache.join('');
 };
 
+// below is an alternative solution
+// it uses an accumulator to add decimals
+// it then returns the value as a string
 
 const convertBinaryToString = function(num) {
   let accumulator = 0;
