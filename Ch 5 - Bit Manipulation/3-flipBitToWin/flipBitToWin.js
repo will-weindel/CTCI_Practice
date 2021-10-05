@@ -40,4 +40,25 @@ var flipBitToWin = function (num) {
   return maxCount > 0 ? maxCount : secondGroupCount;
 };
 
+const flipBitToWin = function(num) {
+  let group1Length = 0;
+  let group2Length = 0;
+  let maxLength = 0;
+
+  while (num > 0) {
+    if (!(num & 1)) {
+      let totalLength = group1Length + group2Length + 1;
+      maxLength = Math.max(totalLength, maxLength);
+      group1Length = group2Length;
+      group2Length = 0;
+    } else {
+      group2Length++;
+    }
+    num >>= 1;
+  }
+
+  maxLength = Math.max(group1Length + group2Length + 1, maxLength);
+  return maxLength;
+}
+
 module.exports = flipBitToWin;
