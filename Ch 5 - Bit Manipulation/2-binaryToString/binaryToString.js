@@ -34,4 +34,22 @@ var binaryToString = function (num) {
   return (num > 0) ? 'ERROR' : bitCache.join('');
 };
 
+
+const convertBinaryToString = function(num) {
+  let accumulator = 0;
+  let binaryFactor = 0;
+
+  while (binaryFactor < 32 && num > 0) {
+    binaryFactor++;
+    let decimalBinary = (1 / 2 ** binaryFactor);
+
+    if (decimalBinary <= num) {
+      accumulator += decimalBinary;
+      num -= decimalBinary;
+    }
+  }
+
+  return accumulator.toString(2);
+}
+
 module.exports = binaryToString;
