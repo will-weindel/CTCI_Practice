@@ -32,6 +32,9 @@ var pairwiseSwap = function (num) {
   return num;
 };
 
+// below solution takes different approach to pairwiseswap.js"
+// mask adds values, which 'swaps' vals
+
 const flipOddEvenBits = function(num) {
   let oddBit = 1;
   let evenBit = 1 << 1;
