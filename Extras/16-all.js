@@ -56,3 +56,18 @@ const findYearWithMostPeople = function(array) {
 
   return maxCountAndYear;
 }
+
+const findAllDivingBoardLengths = function(num, a, b) {
+  const longerPlank = a > b ? a : b;
+  const shorterPlank = a > b ? b : a;
+
+  let currentlength = shorterPlank * num;
+  let allLengths = [currentlength];
+
+  for (let i = 1; i <= num; i++) {
+    currentlength += longerPlank - shorterPlank;
+    allLengths.push(currentlength);
+  }
+
+  return allLengths;
+}
