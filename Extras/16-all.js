@@ -71,3 +71,37 @@ const findAllDivingBoardLengths = function(num, a, b) {
 
   return allLengths;
 }
+
+let objLit = {
+  name: 'Will'
+}
+
+let objCre = Object.create(objLit);
+
+const FactoryCreate = function() {
+  return Object.create(objCre);
+}
+
+let childCre = FactoryCreate();
+
+const Construct = function() {
+  this.name = 'William'
+}
+
+Construct.prototype.getName = function() {
+  return this.name;
+}
+
+let pseudoClass = new Construct();
+
+class Full {
+  constructor() {
+    this.name = 'Bill';
+  }
+
+  getName() {
+    return this.name;
+  }
+}
+
+let fullClass = new Full();
