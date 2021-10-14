@@ -105,3 +105,13 @@ class Full {
 }
 
 let fullClass = new Full();
+
+const bisectSquares = function(sq1, sq2) {
+  const sq1Middle = [(sq1.lowerR[0] + sq1.lowerL[0]) / 2, (sq1.upperL[1] + sq1.lowerL[1]) / 2];
+  const sq2Middle = [(sq2.lowerR[0] + sq2.lowerL[0]) / 2, (sq2.upperL[1] + sq2.lowerL[1]) / 2];
+
+  const bisectSlope = (sq1Middle[1] - sq2Middle[1]) / (sq1Middle[0] - sq2Middle[0]);
+  const bisectYIntercept = sq1Middle[1] - (bisectSlope * sq1Middle[0]);
+
+  return `y = ${bisectSlope}x + ${bisectYIntercept}`;
+};
