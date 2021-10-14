@@ -151,7 +151,7 @@ const subSort = function(array) {
 };
 
 
-const mergeSort = function(array) {
+const mergeSortt = function(array) {
 
   if (array.length <= 1) return array;
 
