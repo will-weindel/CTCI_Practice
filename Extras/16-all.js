@@ -135,3 +135,41 @@ const playMasterMind = function(guess, solution) {
 
   return [hits, pseudoHits];
 };
+
+const subSort = function(array) {
+  const sortedArray = mergeSort(array);
+  const indexRange = [ null, null ];
+
+  for (let i = 0; i < sortedArray.length; i++) {
+    if (sortedArray[i] != array[i]) {
+      if (indexRange[0] === null) indexRange[0] = i;
+      else indexRange[1] = i;
+    }
+  }
+
+  return indexRange;
+};
+
+
+const mergeSort = function(array) {
+
+  if (array.length <= 1) return array;
+
+  const leftHalf = mergeSort(array.slice(0, array.length / 2));
+  const rightHalf = mergeSort(array.slice(array.length / 2));
+  const mergedArray = [ ];
+  let leftIndex = 0;
+  let rightIndex = 0;
+
+  for (let i = 0; i <= leftHalf.length + rightHalf.length - 1; i++) {
+    if (!rightHalf[rightIndex] || leftHalf[leftIndex] && leftHalf[leftIndex] <= rightHalf[rightIndex]) {
+      mergedArray.push(leftHalf[leftIndex]);
+      leftIndex++;
+    } else {
+      mergedArray.push(rightHalf[rightIndex]);
+      rightIndex++;
+    }
+  }
+
+  return mergedArray;
+};
