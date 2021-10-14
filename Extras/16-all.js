@@ -115,3 +115,23 @@ const bisectSquares = function(sq1, sq2) {
 
   return `y = ${bisectSlope}x + ${bisectYIntercept}`;
 };
+
+const playMasterMind = function(guess, solution) {
+  const amountsRYGB = { R: 0, Y: 0, G: 0, B: 0 };
+  let hits = 0;
+  let pseudoHits = 0;
+
+  for (let i = 0; i < solution.length; i++) {
+    if (guess[i] === solution[i]) hits++;
+    else amountsRYGB[solution[i]]++;
+  }
+
+  for (let i = 0; i < guess.length; i++) {
+    if (amountsRYGB[guess[i]] > 0) {
+      pseudoHits++;
+      amountsRYGB[guess[i]]--;
+    }
+  }
+
+  return [hits, pseudoHits];
+};
